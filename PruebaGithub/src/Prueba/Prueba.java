@@ -16,7 +16,7 @@ public class Prueba {
 		//Declaración de variables
 		//TIPO -> NOMBRE = VALOR POR DEFECTO O INICIAL
 		
-		short num1 = 9;
+		short num2 = 9;
 		int mes = 12;
 		long distancia = 3000000;
 		char letra = 'a';
