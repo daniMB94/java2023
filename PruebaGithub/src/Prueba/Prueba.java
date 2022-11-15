@@ -30,7 +30,11 @@ public class Prueba {
 		
 		final double PLUS = 1.15; //constante (el nombre mayúsculas)
 		
-		System.out.println(num1);
+		long largo2 = (int) 3;
+		double grande2 = 5f;
+		
+		
+		System.out.println(num2);
 		System.out.println(mes);
 		System.out.println(distancia);
 		System.out.println(letra);
