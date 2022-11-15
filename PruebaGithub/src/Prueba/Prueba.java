@@ -29,6 +29,7 @@ public class Prueba {
 		System.out.println(decimal);
 		System.out.println(precio);
 		System.out.println(ganasDeIrme);
+		System.out.println(PLUS);
 		
 	}
 
