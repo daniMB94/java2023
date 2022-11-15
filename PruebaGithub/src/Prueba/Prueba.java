@@ -2,6 +2,14 @@ package Prueba;
 
 public class Prueba {
 
+	static int numero = 1;
+	
+	public static int suma(int a, int b) {
+		int mes = 11;
+		
+		return a+b * numero;
+	}
+	
 	public static void main(String[] args) {
 
 
