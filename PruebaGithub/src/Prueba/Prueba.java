@@ -11,7 +11,7 @@ public class Prueba {
 		short num1 = 9;
 		int mes = 12;
 		long distancia = 3000000;
-		char letra = 'T';
+		char letra = 'Z';
 		float decimal = 1e10f;
 		double precio = 35000.95;
 		
