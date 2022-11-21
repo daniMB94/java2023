@@ -11,7 +11,7 @@ public class Ejercicio15 {
 		
 		double misIntereses, misInteresesRetencion;
 		
-		misIntereses = 2000 * interes / 2;
+		misIntereses = cantidad * interes / 2;
 		misInteresesRetencion = misIntereses * retencion;
 		
 		System.out.println(misIntereses + "€ sin retención");
