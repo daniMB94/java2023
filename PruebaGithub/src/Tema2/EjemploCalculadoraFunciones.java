@@ -22,6 +22,7 @@ public class EjemploCalculadoraFunciones {
 		
 		return numero;
 	}
+	
 
 	public static void main(String[] args) {
 
