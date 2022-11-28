@@ -7,31 +7,37 @@ public class Ejercicio17 {
 		double a, b, c, d, e, f, g;
 		
 		
-		a = Math.random()*49;
+		a = Math.random()*50;
+		if (a < 1) {
+			a = Math.random()*50;
+		}
 		a = Math.floor(a);
 		
-		b = Math.floor((Math.random()*100));
+		b = Math.floor((Math.random()*101));
 		while (b%2 != 0) {
-			b = (Math.random()*100);
+			b = (Math.random()*101);
 			b = Math.floor(b);
 		}
 		
-		c = Math.random()*10;
+		c = Math.random()*11;
+		if (c<1) {
+			c = Math.random()*11;
+		}
 		c = Math.floor(c);
 		
-		d = Math.random()*-150;
+		d = Math.random()*-151;
 		d = Math.floor(d);
 		while (d<-150 || d>-50) {
-			d = (Math.random()*-150);
+			d = (Math.random()*-151);
 			d = (Math.floor(d));
 		}
 		
 		e = Math.random();
 		
 		if(e>0.5) {
-			e = Math.random()*100;
+			e = Math.random()*101;
 		} else {
-			e = Math.random()*-100;
+			e = Math.random()*-101;
 		}
 		e = Math.floor(e);
 		
@@ -49,7 +55,10 @@ public class Ejercicio17 {
 		}
 				 
 			
-		g = Math.random()*12;
+		g = Math.random()*13;
+		if (g<1) {
+			g = Math.random()*13;
+		}
 		g = Math.floor(g);
 
 		
