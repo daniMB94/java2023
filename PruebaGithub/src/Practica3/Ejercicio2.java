@@ -29,10 +29,10 @@ public class Ejercicio2 {
 		
 		b = multiplo(a);
 		
-		if(multiplo(a) != 2 || multiplo(a) != 3 || multiplo(a) != 5 || multiplo(a) != 7) {
-			System.out.println("El número " + a + " no es múltiplo ni de 2 ni de 3 ni de 5 ni de 7");
-		} else {
+		if(b == 2 || b == 3 || b == 5 || b == 7) {
 			System.out.println(a + " es múltiplo de " + multiplo(a));
+		} else {
+			System.out.println("El número " + a + " no es múltiplo ni de 2 ni de 3 ni de 5 ni de 7");
 		}
 		
 		
