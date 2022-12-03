@@ -12,31 +12,12 @@ public class Ejercicio15 {
 		// **	1 espacio y 2*		espacios = 3 - nEstrellas
 		//***	0 espacios y 3*		espacios = 3 - nEstrellas
 		
-		/*
-		int num = 0;
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Introduce el número de niveles de la escalera: ");
-		num = Integer.parseInt(sc.nextLine());
-		
-		
-		for (int i = 1; i <= num; i++) {
-			for (int p = 1; p <= num - i; p++) {
-				System.out.print(" ");
-			}
-			
-			for (int j = num-1; j = num; j++) {
-				System.out.println("*");
-			}
-		}
-	
-		*/
+
 		int numero = 0;
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Dime un número para crear la figura");
+		System.out.print("Dime un número para crear la figura: ");
 		try {
 			numero = Integer.parseInt(sc.nextLine());
 		} catch (Exception e) {
