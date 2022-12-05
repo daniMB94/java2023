@@ -16,7 +16,7 @@ public class Ejercicio17 {
 
 		if (num2 > num1) {
 			for (int i = num1; i <= num2; i++) {
-				if (i % 2 == 0) {
+				if (i % 2 != 0) {
 					System.out.print("# ");
 					i++;
 				}
@@ -25,7 +25,7 @@ public class Ejercicio17 {
 			}
 		} else {
 			for (int i = num2; i <= num1; i++) {
-				if (i % 2 == 0) {
+				if (i % 2 != 0) {
 					System.out.print("# ");
 					i++;
 				}
