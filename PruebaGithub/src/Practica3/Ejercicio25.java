@@ -2,13 +2,13 @@ package Practica3;
 
 import java.util.Scanner;
 
-public class Ejercicio24 {
+public class Ejercicio25 {
 
 	public static void main(String[] args) {
-
-
 		
-		int numero, unidades, decenas, centenas;
+		int numero = 0, numeroReves = 0, unidades, decenas, centenas;
+		
+		
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce un número del 1 al 999: ");
@@ -18,7 +18,13 @@ public class Ejercicio24 {
 		decenas = (numero % 100) / 10;
 		centenas = (numero % 100) % 10;
 		
-		System.out.println("El número del revés es: " + centenas + decenas + unidades);
+		numeroReves =  centenas*100 + decenas*10 + unidades;
+		
+		if(numero == numeroReves) {
+			System.out.println("Es capicúa");
+		} else {
+			System.out.println("No es capicúa");
+		}
 		
 		
 		

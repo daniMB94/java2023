@@ -1,6 +1,6 @@
 package Practica3;
 
-import java.util. Scanner;
+import java.util.Scanner;
 
 public class Ejercicio19 {
 
@@ -26,7 +26,7 @@ public class Ejercicio19 {
 		}
 
 		media = total / nElementos;
-		System.out.println(media);
+		System.out.println("La media es: " + media);
 
 		
  

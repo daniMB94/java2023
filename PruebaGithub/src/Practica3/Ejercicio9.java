@@ -7,7 +7,7 @@ public class Ejercicio9 {
 	public static double factorial(int numero) {
 		double acumulador = 1;
 		
-		for(int i = (int) numero; i >= 1; i--) { //hay que pasar la variable número a entero porque el factorial no calcula con decimales
+		for(int i = (int) numero; i >= 1; i--) {
 			acumulador = acumulador * i;
 		}
 		
@@ -16,7 +16,7 @@ public class Ejercicio9 {
 
 	public static void main(String[] args) {
 
-		//Pedrir número por teclado que quieres obtener el factorial
+
 		double numero = 0;
 		double acumulador = 1;
 		
@@ -25,8 +25,7 @@ public class Ejercicio9 {
 		System.out.println("Dime un número para calcular su factorial");
 		numero = Double.parseDouble(sc.nextLine());
 		
-		//3 -> 3*2*1
-		//8 -> 8*7*6*5*4*3*2*1
+
 		
 		
 	

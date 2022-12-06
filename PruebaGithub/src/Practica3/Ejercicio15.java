@@ -6,12 +6,6 @@ public class Ejercicio15 {
 
 	public static void main(String[] args) {
 
-		//Pedir n por teclado (entre 1 y 10)
-		//n = 3
-		//  *	2 espacios y 1*		espacios = 3 - nEstrellas
-		// **	1 espacio y 2*		espacios = 3 - nEstrellas
-		//***	0 espacios y 3*		espacios = 3 - nEstrellas
-		
 
 		int numero = 0;
 		
