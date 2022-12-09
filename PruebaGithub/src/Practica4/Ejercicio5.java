@@ -13,7 +13,7 @@ public class Ejercicio5 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Introduce 10 números para la matriz A:");
+		System.out.println("Introduce 5 números para la matriz A:");
 		for(int i = 0; i < tablaA.length; i++) {
 			numeroIntroducido = Integer.parseInt(sc.nextLine());
 			tablaA[i] = numeroIntroducido;
@@ -29,7 +29,7 @@ public class Ejercicio5 {
 			
 		}
 		System.out.println("");
-		System.out.println("Introduce 10 números para la matriz B:");
+		System.out.println("Introduce 5 números para la matriz B:");
 		for(int i = 0; i < tablaB.length; i++) {
 			numeroIntroducido = Integer.parseInt(sc.nextLine());
 			tablaB[i] = numeroIntroducido;
