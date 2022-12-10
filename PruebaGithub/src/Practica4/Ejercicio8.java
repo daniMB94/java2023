@@ -8,7 +8,7 @@ public class Ejercicio8 {
 
 		Scanner sc = new Scanner(System.in);
 		int numeros[] = new int[5];
-		int numeroIntroducido;
+		int numeroIntroducido, primeroUltimo;
 		
 		System.out.println("Introduce 5 numeros en la matriz:");
 		
@@ -21,9 +21,19 @@ public class Ejercicio8 {
 			System.out.print(numeros[i] + ", ");
 		}
 		
+		primeroUltimo = numeros[numeros.length-1];
+		for(int i = numeros.length-1; i >= 0; i--) {
+			if(i == 4) {
+				
+			} else numeros[i+1] = numeros[i];
+		}
+		numeros[0] = primeroUltimo;
 		
+		System.out.println("Pintamos la matriz con los elementos intercambiados en una posición hacia la derecha");
 		
-		
+		for(int i = 0; i < numeros.length; i++) {
+			System.out.print(numeros[i] + ", ");
+		}
 	}
 
 }
