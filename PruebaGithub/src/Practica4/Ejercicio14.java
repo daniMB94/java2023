@@ -27,8 +27,8 @@ public class Ejercicio14 {
 			System.out.println("");
 		}
 		
-		menor = tabla[1][1];
-		mayor = tabla[1][1];
+		menor = tabla[0][0];
+		mayor = tabla[0][0];
 		for(int i = 0; i < tabla.length; i++) {
 			for(int j = 0; j < tabla[0].length; j++) {
 				if(tabla[i][j] > mayor) mayor = tabla[i][j];

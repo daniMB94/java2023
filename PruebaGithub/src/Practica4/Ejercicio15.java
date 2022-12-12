@@ -27,7 +27,7 @@ public class Ejercicio15 {
 			}
 		}
 		
-		System.out.println("Introduce los elementos de la matriz A:");
+		
 		for(int i = 0; i < tablaC.length; i++) {
 			for(int j = 0; j < tablaC[0].length; j++) {
 				tablaC[i][j] = tablaA[i][j] + tablaB[i][j];
