@@ -24,7 +24,7 @@ public class Ejercicio17 {
 
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[0].length; j++) {
-				matriz[i][j] = (int) (Math.random() * 100 + 1);
+				matriz[i][j] = (int) (Math.random() * (500 + 1) - 0) + 0;
 			}
 		}
 
@@ -38,6 +38,7 @@ public class Ejercicio17 {
 			}
 		}
 
+	
 		Arrays.sort(matrizA);
 		contador = 0;
 		for (int i = 0; i < matriz.length; i++) {
@@ -47,7 +48,9 @@ public class Ejercicio17 {
 				contador += 1;
 			}
 		}
+		
 		System.out.println("--------------------------");
+		System.out.println("Esta matriz está ordenada completamente: ");
 		pintarMatriz(matriz);
 	}
 

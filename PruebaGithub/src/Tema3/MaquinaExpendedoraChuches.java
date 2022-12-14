@@ -1,6 +1,6 @@
 package Tema3;
 
-public class EjercicioExamenPasado {
+public class MaquinaExpendedoraChuches {
 	
 	public static void pintarMatrizInt(int matriz[][]) {
 		System.out.print("[");
