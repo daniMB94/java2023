@@ -16,7 +16,7 @@ public class Ejercicio1 {
 
 	public static void main(String[] args) {
 
-		String vocal = 'e';
+		String vocal = "E";
 		String frase;
 		
 		Scanner sc = new Scanner(System.in);
