@@ -112,7 +112,7 @@ public class Ejercicio4 {
 		do {
 			coord1 = (int) (Math.random() * ((laberinto.length - 1) + 1) - 0) + 0;
 			coord2 = (int) (Math.random() * ((laberinto[0].length - 1) + 1) - 0) + 0;
-		} while ((coord1 != 0 && coord1 != laberinto[0].length - 1) && (coord2 != 0 || coord2 != laberinto.length - 1)
+		} while ((coord1 != 0 && coord1 != laberinto[0].length - 1) && (coord2 != 0 && coord2 != laberinto.length - 1)
 				|| (coord1 == 0 && coord2 == 0));
 		// Generamos aleatoriamente las coordenadas de la bomba (únicamente se permite
 		// dentro del laberinto excluyendo los bordes)
