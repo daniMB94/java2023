@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Ejercicio4 {
 
-	public static void pintar(String[][] laberinto, int coord1, int coord2, int coord1Bomba, int coord2Bomba) {
+	public static void pintar(String[][] laberinto, int coord1, int coord2, int coord1Bomba, int coord2Bomba,
+			int inicioX, int inicioY) {
 		
 		int movimiento = 0;
-		int inicioX = 0;
-		int inicioY = 0;
+
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -89,6 +89,28 @@ public class Ejercicio4 {
 		else if(laberinto[inicioY][inicioX] == laberinto[coord1Bomba][coord2Bomba]) System.out.println("Has encontrad la bomba. GAME OVER");
 
 	}
+	
+	public static void maquina(String[][] laberinto, int coord1, int coord2, int coord1Bomba, int coord2Bomba,
+			int inicioX, int inicioY) {
+		int diferenciaX, diferenciaY;
+
+
+		diferenciaY =  coord2 - inicioX;
+		diferenciaX =  coord1 - inicioY;
+		
+		while (diferenciaX > 0 || diferenciaY > 0) {
+			if(diferenciaX > 0) {
+				inicioX = inicioX + 1;
+				diferenciaX =  coord2 - inicioX;
+			}
+			if(diferenciaY > 0) {
+				inicioY = inicioY + 1;
+				diferenciaY = coord1 - inicioY;
+			}
+			
+		}
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -103,6 +125,8 @@ public class Ejercicio4 {
 		//Determinamos las coordenadas de la bomba
 		int coord1Bomba = 0;
 		int coord2Bomba = 0;
+		//Una variable para activar parte de la funcion "pintar"
+		int activador = 0;
 
 
 
@@ -160,9 +184,17 @@ public class Ejercicio4 {
 			System.out.println("");
 
 		}
-		pintar(laberinto, coord1, coord2, coord1Bomba, coord2Bomba);
+		pintar(laberinto, coord1, coord2, coord1Bomba, coord2Bomba, inicioX, inicioY);
+		
+		System.out.println("Si quieres ver como lo haría la máquina pulsa 1, en caso contrario pulsa 0:");
+		
+		//PONEMOS UN SC PARA METER LA RESPUESTA DEL USUARIO Y LUEGO ACTIVAMOS UNA PARTE DE LA FUNCIÓN PINTAR CON UN "IF"
+		//LUEGO PONEMOS LA FUNCION PINTAR DENTRO DE LA FUNCION MAQUINA
+		
+		maquina(laberinto, coord1, coord2, coord1Bomba, coord2Bomba, inicioX, inicioY);
 
 		System.out.println("Partida terminada");
+		
 		
 	}
 
