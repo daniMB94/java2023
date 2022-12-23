@@ -6,13 +6,17 @@ public class Ejercicio4 {
 
 	public static void pintar(String[][] laberinto, int coord1, int coord2, int coord1Bomba, int coord2Bomba,
 			int inicioX, int inicioY, int activador) {
-		
-		int movimiento = 0;
 
-		
+		int movimiento = 0;
+		String outOfBounds = "";
 		Scanner sc = new Scanner(System.in);
-		if(activador == 0) {
-			//Generamos un menú para seleccionar movimiento
+		
+		//La variable "activador" determina si entramos en la primera parte del bucle IF o en la segunda.
+		//La primera parte del bucle es para la entrada manual de movimientos
+		//La segunda parte es para la entrada automática de movimientos
+		
+		if (activador == 0) {
+			// Generamos un menú para seleccionar movimiento
 			do {
 				System.out.println("1. Derecha");
 				System.out.println("2. Izquierda");
@@ -24,36 +28,36 @@ public class Ejercicio4 {
 				} catch (Exception e) {
 					System.out.println("Movimiento incorrecto (1, 2, 3 ó 4)");
 				}
-				
 
 				switch (movimiento) {
 				case 1:
 					System.out.println("Derecha");
-					inicioX = inicioX +1;
+					inicioX = inicioX + 1;
 					break;
 				case 2:
 					System.out.println("Izquierda");
-					inicioX = inicioX -1;
+					inicioX = inicioX - 1;
 					break;
 				case 3:
 					System.out.println("Abajo");
-					inicioY = inicioY +1;
+					inicioY = inicioY + 1;
 					break;
 				case 4:
 					System.out.println("Arriba");
-					inicioY = inicioY -1;
+					inicioY = inicioY - 1;
 					break;
 				default:
 					System.out.println("Movimiento incorrecto (1, 2, 3 ó 4)");
 					break;
 				}
-				//Introducimos el cambio en el tablero y ponemos un Try para capturar la salida y pintar "Game Over"
-				
-				
+				// Introducimos el cambio en el tablero y ponemos un Try para capturar la salida
+				// y pintar "Game Over"
+
 				for (int i = 0; i < laberinto.length; i++) {
 					for (int j = 0; j < laberinto[0].length; j++) {
 						if (i == inicioY && j == inicioX)
 							laberinto[inicioY][inicioX] = "@";
+
 						else {
 							if (i == coord1 && j == coord2)
 								laberinto[i][j] = "#";
@@ -71,8 +75,8 @@ public class Ejercicio4 {
 
 				}
 
-				//Pintamos el nuevo tablero
-				
+				// Pintamos el nuevo tablero
+
 				for (int i = 0; i < laberinto.length; i++) {
 					for (int j = 0; j < laberinto[0].length; j++) {
 						System.out.print(laberinto[i][j] + " ");
@@ -80,19 +84,26 @@ public class Ejercicio4 {
 					System.out.println("");
 
 				}
-				
-				//La condicion de salida del bucle es o encontrar la salida o encontrar la bomba o que pete el programa
-			} while (laberinto[inicioY][inicioX] != laberinto[coord1][coord2] &&
-					laberinto[inicioY][inicioX] != laberinto[coord1Bomba][coord2Bomba]);
-			
-			if(laberinto[inicioY][inicioX] == laberinto[coord1][coord2]) System.out.println("¡Has llegado a la salida!");
-			else if(laberinto[inicioY][inicioX] == laberinto[coord1Bomba][coord2Bomba]) System.out.println("Has encontrad la bomba. GAME OVER");
+
+				// La condicion de salida del bucle es o encontrar la salida o encontrar la
+				// bomba o que pete el programa
+			} while (laberinto[inicioY][inicioX] != laberinto[coord1][coord2]
+					&& laberinto[inicioY][inicioX] != laberinto[coord1Bomba][coord2Bomba]);
+
+			if (laberinto[inicioY][inicioX] == laberinto[coord1][coord2])
+				System.out.println("¡Has llegado a la salida!");
+			else if (laberinto[inicioY][inicioX] == laberinto[coord1Bomba][coord2Bomba])
+				System.out.println("Has encontrad la bomba. GAME OVER");
 		} else {
-			//Introducimos los cambios y pintamos el nuevo tablero
+			// Introducimos los cambios y pintamos el nuevo tablero
 			for (int i = 0; i < laberinto.length; i++) {
 				for (int j = 0; j < laberinto[0].length; j++) {
 					if (i == inicioY && j == inicioX)
-						laberinto[inicioY][inicioX] = "@";
+						try {
+							laberinto[inicioY][inicioX] = "@";
+						} catch (Exception e) {
+							System.out.println("Fuera de los límites. GAME OVER.");
+						}
 					else {
 						if (i == coord1 && j == coord2)
 							laberinto[i][j] = "#";
@@ -116,39 +127,38 @@ public class Ejercicio4 {
 				System.out.println("");
 
 			}
-			
-			if(laberinto[inicioY][inicioX] == laberinto[coord1][coord2]) System.out.println("¡Has llegado a la salida!");
-			else if(laberinto[inicioY][inicioX] == laberinto[coord1Bomba][coord2Bomba]) System.out.println("Has encontrad la bomba. GAME OVER");
-		}
-		
-		
-		}
-		
 
-	
-	
+			if (laberinto[inicioY][inicioX] == laberinto[coord1][coord2])
+				System.out.println("¡Has llegado a la salida!");
+			else if (laberinto[inicioY][inicioX] == laberinto[coord1Bomba][coord2Bomba])
+				System.out.println("Has encontrad la bomba. GAME OVER");
+		}
+
+	}
+
 	public static void maquina(String[][] laberinto, int coord1, int coord2, int coord1Bomba, int coord2Bomba,
 			int inicioX, int inicioY, int activador) {
 		inicioY = 0;
 		inicioX = 0;
-		int diferenciaX, diferenciaY;
+		int diferenciaX = 0, diferenciaY = 0;
 
+		if (coord2 - inicioX > 0)
+			diferenciaX = coord2 - inicioX;
+		if (coord1 - inicioY > 0)
+			diferenciaY = coord1 - inicioY;
 
-		diferenciaY =  coord2 - inicioX;
-		diferenciaX =  coord1 - inicioY;
-		
 		while (diferenciaX > 0 || diferenciaY > 0) {
-			if(diferenciaX > 0) {
+			if (diferenciaX > 0) {
 				inicioX = inicioX + 1;
-				diferenciaX =  coord2 - inicioX;
+				diferenciaX = coord2 - inicioX;
 			}
-			if(diferenciaY > 0) {
+			if (diferenciaY > 0) {
 				inicioY = inicioY + 1;
 				diferenciaY = coord1 - inicioY;
 			}
 			pintar(laberinto, coord1, coord2, coord1Bomba, coord2Bomba, inicioX, inicioY, activador);
 		}
-		
+
 	}
 
 	public static void main(String[] args) {
@@ -158,18 +168,15 @@ public class Ejercicio4 {
 		// Determinamos las coordenadas del inicio
 		int inicioX = 0;
 		int inicioY = 0;
-		//Determinamos las coordenadas de la salida
+		// Determinamos las coordenadas de la salida
 		int coord1 = 0;
 		int coord2 = 0;
-		//Determinamos las coordenadas de la bomba
+		// Determinamos las coordenadas de la bomba
 		int coord1Bomba = 0;
 		int coord2Bomba = 0;
-		//Una variable para activar parte de la funcion "pintar"
+		// Una variable para activar parte de la funcion "pintar"
 		int activador = 0;
 		Scanner sc = new Scanner(System.in);
-		
-
-
 
 		// Generamos aleatoriamente las coordenadas de la salida (solo para los bordes
 		// excluyendo la coordenada 0,0)
@@ -188,7 +195,7 @@ public class Ejercicio4 {
 				|| coord1Bomba == 19 || coord2Bomba == 19 || coord1Bomba == 0 || coord2Bomba == 0);
 
 		System.out.println(coord1Bomba + " - " + coord2Bomba);
-		
+
 		// Generamos el tablero usando las coordenadas de inicio "@", las coordenadas de
 		// salida "#"
 
@@ -225,12 +232,12 @@ public class Ejercicio4 {
 
 		}
 		pintar(laberinto, coord1, coord2, coord1Bomba, coord2Bomba, inicioX, inicioY, activador);
-		
+
 		System.out.println("Si quieres ver como lo haría la máquina pulsa 1, en caso contrario pulsa 0:");
-		
-		
-		//PONEMOS UN SC PARA METER LA RESPUESTA DEL USUARIO Y LUEGO ACTIVAMOS UNA PARTE DE LA FUNCIÓN PINTAR CON UN "IF"
-		//LUEGO PONEMOS LA FUNCION PINTAR DENTRO DE LA FUNCION MAQUINA
+
+		// PONEMOS UN SC PARA METER LA RESPUESTA DEL USUARIO Y LUEGO ACTIVAMOS UNA PARTE
+		// DE LA FUNCIÓN PINTAR CON UN "IF"
+		// LUEGO PONEMOS LA FUNCION PINTAR DENTRO DE LA FUNCION MAQUINA
 		do {
 			try {
 				activador = Integer.parseInt(sc.nextLine());
@@ -239,17 +246,13 @@ public class Ejercicio4 {
 				activador = 2;
 			}
 		} while (activador != 0 && activador != 1);
-		
-		
-		if(activador == 1) {
+
+		if (activador == 1) {
 			maquina(laberinto, coord1, coord2, coord1Bomba, coord2Bomba, inicioX, inicioY, activador);
 		}
-		
-		
 
 		System.out.println("Partida terminada");
-		
-		
+
 	}
 
 }
