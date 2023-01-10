@@ -61,12 +61,15 @@ public class Coche {
 	
 	public boolean vender() {
 		if(this.precio > 10000) {
-			return true;
+			
 		}
+		return true;
 	}
-	//COMENT	
+		
 	public String pintar() {
 		String cocheStr= "";
 		cocheStr = this.marca + "-" + this.modelo + "-" + this.color;
+		return cocheStr;
 	}
+	
 }
