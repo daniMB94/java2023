@@ -64,7 +64,7 @@ public class Coche {
 			return true;
 		}
 	}
-		
+	//COMENT	
 	public String pintar() {
 		String cocheStr= "";
 		cocheStr = this.marca + "-" + this.modelo + "-" + this.color;
