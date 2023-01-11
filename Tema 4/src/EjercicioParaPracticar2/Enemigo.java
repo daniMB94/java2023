@@ -69,7 +69,7 @@ public class Enemigo {
 		 this.salud = this.salud + (int) (Math.pow(2, this.nivel));
 	}
 	
-	public void recibirDamage(int daño) {
+	public void recibirDamage(int danio) {
 		this.salud = this.salud - damage;
 		if(this.salud <= 0) {
 			System.out.println("Enemigo muerto");
