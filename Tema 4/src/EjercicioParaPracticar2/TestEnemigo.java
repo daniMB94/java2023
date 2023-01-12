@@ -34,6 +34,8 @@ public class TestEnemigo {
 		
 		System.out.println(ene1);
 		System.out.println(ene2);
+		
+		
 	}
 
 	@Override
@@ -44,6 +46,7 @@ public class TestEnemigo {
 		builder.append("]");
 		return builder.toString();
 	}
+	
 	
 	
 
