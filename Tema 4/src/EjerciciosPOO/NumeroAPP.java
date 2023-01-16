@@ -13,7 +13,13 @@ public class NumeroAPP {
 		System.out.println("");
 		
 		
-		System.out.println();
+		
+		System.out.println("Si le sumamos " + suma);
+		System.out.println(num1.suma(suma));
+		System.out.println("");
+		
+		System.out.println("Si le restamos " + resta);
+		System.out.println(num1.resta(resta));
 		
 	}
 

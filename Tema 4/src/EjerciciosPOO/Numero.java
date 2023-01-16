@@ -29,14 +29,16 @@ public class Numero {
 	}
 	
 	//METODOS
-	private void suma (int numero) {
+	public int suma(int numero) {
 		this.almacena = this.almacena + numero;
+		return this.almacena;
 	}
 		
-	private void resta (int resta) {
+	public int resta(int resta) {
 		this.almacena = this.almacena - resta;
+		return this.almacena;
 	}
-	private double getDouble () {
+	public int getDouble () {
 		return this.almacena * 2;
 	}
 
