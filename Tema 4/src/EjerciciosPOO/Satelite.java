@@ -37,8 +37,6 @@ public class Satelite {
 		else
 			acercar = false;
 	}
-	public boolean enOrbita() {
-		
-	}
+	//FALTA AÚN COSAS POR HACER
 	
 }

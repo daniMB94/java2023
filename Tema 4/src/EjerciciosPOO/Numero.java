@@ -3,8 +3,11 @@ package EjerciciosPOO;
 public class Numero {
 
 	//PROPIEDADES
-	public int almacena;
+	//CUANDO HAYA QUE HACER CONVERSIONES ES MEJOR USAR LAS CLASES ENVOLTORIO
+	//SE USARA BASICAMENTE PARA LEER DE TECLADO
+	public Integer almacena;
 
+	
 	
 	//CONSTRUCTOR CON PARAMETROS
 	public Numero(int almacena) {
