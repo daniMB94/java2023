@@ -28,7 +28,6 @@ public class EjemploStringBuffer {
 			cadena = cadena + String.valueOf(i);
 			cadena = cadena + " ";
 		}
-		
 		System.out.println(cadena);
 ;	}
 
