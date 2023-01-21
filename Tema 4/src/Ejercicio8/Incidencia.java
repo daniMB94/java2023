@@ -1,4 +1,4 @@
-package EjerciciosPOO;
+package Ejercicio8;
 
 public class Incidencia {
 

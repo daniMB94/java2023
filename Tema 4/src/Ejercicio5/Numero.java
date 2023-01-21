@@ -1,4 +1,4 @@
-package EjerciciosPOO;
+package Ejercicio5;
 
 public class Numero {
 

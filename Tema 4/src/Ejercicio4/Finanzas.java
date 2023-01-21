@@ -1,4 +1,4 @@
-package EjerciciosPOO;
+package Ejercicio4;
 
 public class Finanzas {
 	

@@ -1,8 +1,8 @@
-package EjerciciosPOO;
+package Ejercicio9;
 
-public class Jugador {
+public class Enemigo {
 	
-	
+
 	//ATRIBUTO
 	private String nombre;
 	private String clase;
@@ -17,7 +17,7 @@ public class Jugador {
 	 * @param salud
 	 * @param dañoArma
 	 */
-	public Jugador(String nombre, String clase, int danioArma) {
+	public Enemigo (String nombre, String clase, int danioArma) {
 		super();
 		this.nombre = nombre;
 		this.clase = clase;
@@ -99,13 +99,13 @@ public class Jugador {
 		this.salud = this.salud - danio;
 	}
 	
-	public void golpear(Enemigo enemigo) {
+	public void golpear(Jugador enemigo) {
 		enemigo.recibirDanio(this.getDanioArma());
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Jugador [nombre=");
+		builder.append("Enemigo [nombre=");
 		builder.append(nombre);
 		builder.append(", clase=");
 		builder.append(clase);

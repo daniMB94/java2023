@@ -1,4 +1,4 @@
-package EjerciciosPOO;
+package Ejercicio11;
 
 public class Robot {
 

@@ -1,4 +1,4 @@
-package EjerciciosPOO;
+package Ejercicio6;
 
 public class SatéliteAPP {
 

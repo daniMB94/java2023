@@ -1,4 +1,4 @@
-package EjerciciosPOO;
+package Ejercicio7;
 
 public class SteamJuego {
 
