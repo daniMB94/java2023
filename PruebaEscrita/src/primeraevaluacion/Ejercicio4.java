@@ -8,13 +8,14 @@ public class Ejercicio4 {
 			int inicioX, int inicioY, int activador) {
 
 		int movimiento = 0;
-		String outOfBounds = "";
+		
 		Scanner sc = new Scanner(System.in);
-		
-		//La variable "activador" determina si entramos en la primera parte del bucle IF o en la segunda.
-		//La primera parte del bucle es para la entrada manual de movimientos
-		//La segunda parte es para la entrada automática de movimientos
-		
+
+		// La variable "activador" determina si entramos en la primera parte del bucle
+		// IF o en la segunda.
+		// La primera parte del bucle es para la entrada manual de movimientos
+		// La segunda parte es para la entrada automática de movimientos
+
 		if (activador == 0) {
 			// Generamos un menú para seleccionar movimiento
 			do {
@@ -133,7 +134,7 @@ public class Ejercicio4 {
 			else if (laberinto[inicioY][inicioX] == laberinto[coord1Bomba][coord2Bomba])
 				System.out.println("Has encontrad la bomba. GAME OVER");
 		}
-
+		sc.close();
 	}
 
 	public static void maquina(String[][] laberinto, int coord1, int coord2, int coord1Bomba, int coord2Bomba,
@@ -252,7 +253,7 @@ public class Ejercicio4 {
 		}
 
 		System.out.println("Partida terminada");
-
+		sc.close();
 	}
 
 }
