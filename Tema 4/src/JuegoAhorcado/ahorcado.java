@@ -1,5 +1,7 @@
 package JuegoAhorcado;
 
+import java.util.Arrays;
+
 public class ahorcado {
 
 	private String palabraSecreta;
@@ -63,33 +65,40 @@ public class ahorcado {
 		ahorcado.palabras = palabras;
 	}
 
+	/**
+	 * @return the letrasSecretas
+	 */
+	public char[] getLetrasSecretas() {
+		return letrasSecretas;
+	}
+
+	/**
+	 * @param letrasSecretas the letrasSecretas to set
+	 */
+	public void setLetrasSecretas(char[] letrasSecretas) {
+		this.letrasSecretas = letrasSecretas;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ahorcado [palabraSecreta=");
-		builder.append(palabraSecreta);
-		builder.append(", letra=");
-		builder.append(", resultado=");
-		builder.append(resultado);
+		builder.append("ahorcado [letrasSecretas=");
+		builder.append(Arrays.toString(letrasSecretas));
 		builder.append("]");
 		return builder.toString();
 	}
 
 	// METODOS
-	public void intentar(char letra) {
+	public void intentar(char letra, char[] letrasSecretas) {
 		int nLetras;
 		boolean contabiliza = true;
 		nLetras = this.palabraSecreta.length();
 
-		letrasSecretas = new char[nLetras];
 		for (int i = 0; i < nLetras; i++) {
 			if (letra == palabraSecreta.charAt(i)) {
 				this.letrasSecretas[i] = letra;
 				contabiliza = false;
 			}
-
-			else
-				this.letrasSecretas[i] = '_';
 
 		}
 		if (contabiliza == true)
@@ -98,10 +107,16 @@ public class ahorcado {
 	}
 
 	public void resolver(String intentoPalabra) {
-		if (intentoPalabra == this.palabraSecreta)
+		if (intentoPalabra.matches(this.palabraSecreta)) {
 			this.resultado = true;
+			for(int i = 0; i < this.letrasSecretas.length; i++) {
+				letrasSecretas[i] = intentoPalabra.charAt(i);
+			}
+		}
+			
 		else
 			this.resultado = false;
+
 	}
 
 }
