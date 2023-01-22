@@ -1,23 +1,24 @@
 package JuegoAhorcado;
 
 public class ahorcado {
-	
+
 	private String palabraSecreta;
-	private char letra;
+	private char letrasSecretas[];
 	private boolean resultado;
-	
+
 	private static String palabras[];
+	private static int contador;
 
 	/**
 	 * @param palabraSecreta
 	 * @param letra
 	 * @param resultado
 	 */
-	public ahorcado(String palabraSecreta, char letra, boolean resultado) {
+	public ahorcado(String palabraSecreta) {
 		super();
 		this.palabraSecreta = palabraSecreta;
-		this.letra = letra;
-		this.resultado = resultado;
+		this.resultado = false;
+		contador = 0;
 	}
 
 	/**
@@ -32,20 +33,6 @@ public class ahorcado {
 	 */
 	public void setPalabraSecreta(String palabraSecreta) {
 		this.palabraSecreta = palabraSecreta;
-	}
-
-	/**
-	 * @return the letra
-	 */
-	public char getLetra() {
-		return letra;
-	}
-
-	/**
-	 * @param letra the letra to set
-	 */
-	public void setLetra(char letra) {
-		this.letra = letra;
 	}
 
 	/**
@@ -82,28 +69,39 @@ public class ahorcado {
 		builder.append("ahorcado [palabraSecreta=");
 		builder.append(palabraSecreta);
 		builder.append(", letra=");
-		builder.append(letra);
 		builder.append(", resultado=");
 		builder.append(resultado);
 		builder.append("]");
 		return builder.toString();
 	}
-	//METODOS
-	public void encontrarLetra(String palabra, char palabraSecreta[], char letra) {
+
+	// METODOS
+	public void intentar(char letra) {
 		int nLetras;
-		
-		nLetras = palabra.length();
-		for(int i = 0; i < nLetras; i++) {
-			if(letra == palabra.charAt(i)) {
-				
-				palabraSecreta[i] = letra;
-			
+		boolean contabiliza = true;
+		nLetras = this.palabraSecreta.length();
+
+		letrasSecretas = new char[nLetras];
+		for (int i = 0; i < nLetras; i++) {
+			if (letra == palabraSecreta.charAt(i)) {
+				this.letrasSecretas[i] = letra;
+				contabiliza = false;
 			}
+
 			else
-				palabraSecreta[i] = '_';
-				
+				this.letrasSecretas[i] = '_';
+
 		}
+		if (contabiliza == true)
+			contador++;
+
 	}
-	
+
+	public void resolver(String intentoPalabra) {
+		if (intentoPalabra == this.palabraSecreta)
+			this.resultado = true;
+		else
+			this.resultado = false;
+	}
 
 }
