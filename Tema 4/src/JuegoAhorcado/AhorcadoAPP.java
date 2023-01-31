@@ -9,7 +9,6 @@ public class AhorcadoAPP {
 		StringBuffer palabrasS = new StringBuffer();
 		StringBuffer palabrasSeparadas = new StringBuffer();
 		Scanner sc = new Scanner(System.in);
-		// La palabra INICIO no se va a usar en el juego
 		String palabras;
 		String coleccionPalabras[];
 		int indexPalabraElegida;
@@ -17,8 +16,6 @@ public class AhorcadoAPP {
 		int nIntentos = 7;
 		int nLetras;
 		char letrasSecretas[];
-		
-		
 
 		int stop = 0;
 		int nPalabras = 0;
@@ -59,16 +56,15 @@ public class AhorcadoAPP {
 		ahorcado.setPalabras(coleccionPalabras);
 
 		ahorcado juego = new ahorcado(coleccionPalabras[indexPalabraElegida]);
-		
+
 		nLetras = juego.getPalabraSecreta().length();
 		letrasSecretas = new char[nLetras];
-		
-		for(int i = 0; i < nLetras; i++) {
+
+		for (int i = 0; i < nLetras; i++) {
 			letrasSecretas[i] = '_';
-			
+
 		}
 		juego.setLetrasSecretas(letrasSecretas);
-		
 
 		System.out.println("*** EMPIEZA EL JUEGO ***");
 		System.out.println("Instrucciones:");
@@ -88,7 +84,7 @@ public class AhorcadoAPP {
 		} while (juego.isResultado() == false && nIntentos <= 7);
 
 		if (juego.isResultado() == false)
-			System.out.println("Lo sientos. Has perdido");
+			System.out.println("Lo siento. Has perdido");
 		else
 			System.out.println("¡Has ganado!");
 

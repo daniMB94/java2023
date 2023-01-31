@@ -83,7 +83,7 @@ public class RobotAPP {
 
 		System.out.println("La salida está en la fila " + salidaY + " y en la columna " + salidaX);
 
-		System.out.println("Tienes 20 pasos para encontrar la salida (no podrás salirte del tablero)");
+		System.out.println("Tienes " + pasosParaSalir + " pasos para encontrar la salida (no podrás salirte del tablero)");
 
 		// Pintamos el tablero inicial
 
@@ -127,6 +127,7 @@ public class RobotAPP {
 		if (robot1.getPosicionX() == salidaX && robot1.getPosicionY() == salidaY) {
 			robot1.setHaLlegado(true);
 			System.out.println("Has encontrado la salida");
+			System.out.println("Has necesitado " + robot1.getnPasos() + " pasos");
 		} else {
 			System.out.println("Lo siento no has encontrado la salida");
 			System.out.println("La salida era la interseccion de la " + salidaY + "º fila y " + salidaX + "º columna");
