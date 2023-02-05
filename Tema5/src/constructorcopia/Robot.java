@@ -1,14 +1,15 @@
-package EjemploConstructorCopia;
+package constructorcopia;
+
+import java.util.Objects;
 
 public class Robot {
-
+	
 	private String color;
 	private int salud;
 	private int coordX;
 	private int coordY;
-
-
-	//Constructor por defecto
+	
+	//CONSTRUCTOR POR DEFECTO
 	public Robot() {
 		this.color = "Negro";
 		this.salud = 100;
@@ -16,16 +17,15 @@ public class Robot {
 		this.coordY = 0;
 	}
 	
-	//Constructor definido o con parámetros
+	//CONSTRUCTOR DEFINIDO O CON PARÁMETROS
 	public Robot(String unColor, int unaSalud, int unaCoordX, int unaCoordY) {
 		this.color = unColor;
 		this.salud = unaSalud;
 		this.coordX = unaCoordX;
-		this.coordY	= unaCoordY;
-	
+		this.coordY = unaCoordY;
 	}
 	
-	//Constructor copia
+	//CONSTRUCTOR COPIA
 	public Robot(Robot otroRobot) {
 		this.color = otroRobot.color;
 		this.salud = otroRobot.salud;
@@ -89,14 +89,16 @@ public class Robot {
 		this.coordY = coordY;
 	}
 	
+	
+	
 	public void setPosicion(int cX, int cY) {
 		this.coordX = cX;
 		this.coordY = cY;
 	}
 	
 	public void setPosicionRandom() {
-		this.coordX = (int)(Math.random() * 20);
-		this.coordY = (int)(Math.random() * 20);
+		this.coordX = (int) (Math.random() * Tablero.longX);
+		this.coordY = (int) (Math.random() * Tablero.longY);
 	}
 
 	@Override
@@ -113,6 +115,33 @@ public class Robot {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(color, coordX, coordY, salud);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Robot other = (Robot) obj;
+		return Objects.equals(color, other.color) && coordX == other.coordX && coordY == other.coordY
+				&& salud == other.salud;
+	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

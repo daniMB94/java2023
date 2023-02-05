@@ -4,63 +4,86 @@ import java.util.ArrayList;
 
 public class Ahorcado {
 
-	private static ArrayList<Palabras> palabras;
-	private String palabraAdivinar;
-	private String palabraActual;
+	// ATRIBUTOS
+	public static ArrayList<Palabras> palabras;
+	public String palabraAdivinar;
+	public StringBuffer palabraActual;
 
+	// CONSTRUCTOR
+	/**
+	 * @param palabraAdivinar
+	 * @param palabraActual
+	 */
 	public Ahorcado() {
-		// Elegir una palabra al azar de 'palabras' y ponerla en 'palabrasAAdivinar'
-		// Rellenar con guiones (tantos como 'palabraAAdivinar') el string
-		// 'palabraActual'
-		
-		palabraActual = (palabras.get((int) (Math.random() * (palabras.size() - 0) + 0))).toString();
-		int longitudPalabraActual;
-		longitudPalabraActual = palabraActual.length();
-		palabraActual = "";
-		for (int i = 0; i < longitudPalabraActual; i++) {
-			palabraActual = palabraActual + " _ ";
-		}
-		
+		super();
+		palabraActual = new StringBuffer();
+		// Añadimos el arraylist al constructor
+		palabras = new ArrayList<>();
 	}
 
-	/*
-	 * Busca la letra en 'palabraAAdivinar', y si aparece la coloca en la msma
-	 * posición en 'palabraActual'
-	 * 
-	 * 
+	// GETTERS Y SETTERS
+	/**
+	 * @return the palabraAdivinar
 	 */
-
-	public boolean intentar(char letra) {
-
-		String memo;
-		memo = palabraAdivinar;
-		for (int i = 0; i < palabraActual.length(); i++) {
-			palabraAdivinar = palabraAdivinar.replace((char) '_', letra);
-
-		}
-		if (memo.equals(palabraAdivinar))
-			return false;
-		else
-			return true;
-
-	}
-	
-	//Metodo introducir palabra
-	public void addPalabra(Palabras palabra) {
-		
+	public String getPalabraAdivinar() {
+		return palabraAdivinar;
 	}
 
-	/*
-	 * Comprobar que 'palabra' es igual a 'palabraAAdivinar', si son igual devuelve
-	 * true (has ganado), si o false (has perdido)
-	 * 
+	/**
+	 * @param palabraAdivinar the palabraAdivinar to set
 	 */
-
-	public boolean resolver(String palabra) {
-		return false;
+	public void setPalabraAdivinar() {
+		this.palabraAdivinar = (palabras.get((int) (Math.random() * (palabras.size() - 0) + 0))).toString();
 	}
 
-	public String getPalabraActual() {
+	/**
+	 * @return the palabraActual
+	 */
+	public StringBuffer getPalabraActual() {
 		return this.palabraActual;
 	}
+
+	/**
+	 * @param palabraActual the palabraActual to set
+	 */
+	public void setPalabraActual() {
+
+		for (int i = 0; i < this.palabraAdivinar.length(); i++) {
+
+			this.palabraActual.append("*");
+		}
+
+	}
+
+	// MÉTODOS
+	public boolean intentar(char letra) {
+		boolean señal = false;
+		for (int i = 0; i < this.palabraAdivinar.length(); i++) {
+
+			if (this.palabraAdivinar.charAt(i) == letra) {
+				this.palabraActual.insert(i, letra);
+				this.palabraActual.deleteCharAt(i + 1);
+				señal = true;
+			} else
+				señal = false;
+
+		}
+		return señal;
+
+	}
+
+	// Metodo introducir palabra al arraylist
+	public void addPalabra(Palabras palabra) {
+		palabras.add(palabra);
+	}
+
+	public boolean resolver(String palabra) {
+		if (this.palabraAdivinar.equals(palabra))
+			return true;
+		else
+			return false;
+	}
+
+
+
 }
