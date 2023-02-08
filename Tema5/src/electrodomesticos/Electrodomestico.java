@@ -2,7 +2,7 @@ package electrodomesticos;
 
 public class Electrodomestico {
 
-	enum ConsumoE {A, B, C, D, E, F};
+	enum ConsumoE {A, B, C, D, E, F}
 	enum ColorE {BLANCO, NEGRO, ROJO, AZUL, GRIS}
 	
 	//protected --> privado para todos, público para las clases hijas
