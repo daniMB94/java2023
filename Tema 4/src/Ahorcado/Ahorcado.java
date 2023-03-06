@@ -57,18 +57,16 @@ public class Ahorcado {
 
 	// MÉTODOS
 	public boolean intentar(char letra) {
-		boolean señal = false;
+		boolean fallo = false;
 		for (int i = 0; i < this.palabraAdivinar.length(); i++) {
 
 			if (this.palabraAdivinar.charAt(i) == letra) {
-				this.palabraActual.insert(i, letra);
-				this.palabraActual.deleteCharAt(i + 1);
-				señal = true;
-			} else
-				señal = false;
+				this.palabraActual.setCharAt(i, letra);
+				fallo = true;
 
+			}
 		}
-		return señal;
+		return fallo;
 
 	}
 
@@ -83,7 +81,5 @@ public class Ahorcado {
 		else
 			return false;
 	}
-
-
 
 }

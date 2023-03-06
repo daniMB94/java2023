@@ -19,17 +19,12 @@ public class AhoracadoAPP {
 		Ahorcado juego = new Ahorcado();
 
 		do {
-			try {
-				palabrasVarias = sc.nextLine().toUpperCase();
-				juego.addPalabra(new Palabras(palabrasVarias));
-				contador++;
 
-			} catch (Exception e) {
-				repetir = true;
-				System.out.println("Introduce solo letras sin espacios");
-			}
+			palabrasVarias = sc.nextLine().toUpperCase();
+			juego.addPalabra(new Palabras(palabrasVarias));
+			contador++;
 
-		} while ((repetir == true) || contador < 5);
+		} while (contador < 5);
 
 		contador = 0;
 
@@ -40,31 +35,28 @@ public class AhoracadoAPP {
 		juego.setPalabraActual();
 
 		System.out.println("Comenzamos el juego. Puedes escribir una letra o escribir una palabra e intentar resolver");
-		System.out.println("Tienes 5 intentos antes de que el 'Ahorcado' quede completamente dibujado y pierdas");
+		System.out.println("Puedes tener 5 fallos antes de que el 'Ahorcado' quede completamente dibujado y pierdas");
 
 		do {
 			System.out.println(juego.getPalabraActual());
-			try {
-				palabrasVarias = sc.nextLine().toUpperCase();
 
-				if (palabrasVarias.length() == 1) {
-					intentoLetra = palabrasVarias.charAt(0);
-					juego.intentar(intentoLetra);
+			palabrasVarias = sc.nextLine().toUpperCase();
+
+			if (palabrasVarias.length() == 1) {
+				intentoLetra = palabrasVarias.charAt(0);
+				if (juego.intentar(intentoLetra) == false)
 					contador++;
-					System.out.println("Intento nº " + contador);
-					repetir = true;
-				}
-
-				else {
-					System.out.println("Has decidido resolver con la palabra: " + palabrasVarias);
-					ganar = juego.resolver(palabrasVarias);
-
-					repetir = false;
-				}
-
-			} catch (Exception e) {
-				System.out.println("Introduce solo letras sin espacios");
+				System.out.println("nº de fallos: " + contador);
+				repetir = true;
 			}
+
+			else {
+				System.out.println("Has decidido resolver con la palabra: " + palabrasVarias);
+				ganar = juego.resolver(palabrasVarias);
+
+				repetir = false;
+			}
+
 		} while (repetir == true && contador < 5);
 
 		if (ganar == true)
