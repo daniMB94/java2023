@@ -11,6 +11,9 @@ public class Podcast extends Multimedia {
 	public Podcast(String nombre, int duracion, LocalDate fecha, int capitulo) {
 		super(nombre, duracion);
 		
+		this.fecha = fecha;
+		this.capitulo = capitulo;
+		
 	}
 
 	/**

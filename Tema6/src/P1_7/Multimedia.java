@@ -97,9 +97,13 @@ public class Multimedia implements Reproducible{
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
+	//Metodos
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(duracion, nombre);
+		return Objects.hash(nombre);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -110,11 +114,8 @@ public class Multimedia implements Reproducible{
 		if (getClass() != obj.getClass())
 			return false;
 		Multimedia other = (Multimedia) obj;
-		return duracion == other.duracion && Objects.equals(nombre, other.nombre);
+		return Objects.equals(nombre, other.nombre);
 	}
-	
-	//Metodos
-	
 	public void addAutor(Autor nombreAutor) {
 		autores.add(nombreAutor);
 	}
@@ -128,7 +129,7 @@ public class Multimedia implements Reproducible{
 	public void reproducir() {
 		
 		System.out.println("Reproduciendo " + this.nombre);
-		this.setReproducciones(this.reproducciones++);
+		this.reproducciones++;
 		
 	}
 	

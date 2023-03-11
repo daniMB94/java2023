@@ -16,7 +16,7 @@ public class Scotify {
 	
 	public Multimedia buscarMultimedia(String nombreMultimedia) {
 		for(Multimedia m : elementosMultimedia) {
-			if(m.equals(nombreMultimedia))
+			if(m.getNombre().toString().equals(nombreMultimedia))
 				return m;
 		}
 			return null;
