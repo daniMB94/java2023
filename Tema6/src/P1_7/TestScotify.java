@@ -102,7 +102,7 @@ public class TestScotify {
 
 		// Ahora vamos a reproducir 5 veces el podcast 2 buscándolo primero y reproduciéndolo después.
 		for (int i = 0; i < 5; i++) {
-			if (scf.buscarMultimedia("poscast2") != null)
+			if (scf.buscarMultimedia("podcast2") != null)
 				// Se ejecutará el método reproducir del padre porque la clase canción no
 				// sobreescribe el método
 				// Si fuera un podcast si ejecutaría el método del hijo
