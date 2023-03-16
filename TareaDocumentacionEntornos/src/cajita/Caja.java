@@ -101,11 +101,21 @@ public void sacarMonedas(int cantidadMonedas){
 	
 }
 
-
+/**
+ * <h4>Método vaciar caja</h4>
+ * Inicializa el atributo cantidadActual a cero
+ */
 public void vaciarCaja(){
 	this.cantidadActual = 0;
 }
 
+/**
+ * <h4>Metodo para agregarMonedas</h4>
+ * Primero se comprueba si a la caja se caben más monedas comparando cantidadActual + cantidad a introducir contra capacidadMaxima.
+ * En caso afirmativo se podrá introducir dinero llamando al método llenarCaja();
+ * 
+ * @param cantidad
+ */
 public void agregarMonedas(int cantidad){
 	if (this.cantidadActual + cantidad > this.capacidadMaxima){
 		llenarCaja();
@@ -115,6 +125,11 @@ public void agregarMonedas(int cantidad){
 	}
 }
 
+/**
+ * <h4>Método para saber el número de cajas que hay</h4>
+ * 
+ * @return numCajas
+ */
 public static int getNumeroCajas() {
 	return numCajas;
 }
