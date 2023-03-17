@@ -1,13 +1,13 @@
 public class RelojLoco
 {
-    public static void main( String[] args ) throws InterruptedException {
+    public static void main( String[] args ) throws InterruptedException, HoraNoValidaException {
    
     	System.out.println( "*********************************" );
     	System.out.println( "*** Bienvenidos al Reloj Loco ***" );
     	System.out.println( "********************************* \n" );
     	String horaReloj = "00 : 00";
     	// Reloj con 12 AM y otras 12 PM
-        VisorReloj reloj = new VisorReloj(12, 60);
+        VisorReloj reloj = new VisorReloj(12, 24);
         System.out.println("Hora Inicial: " + reloj.leerHora());
         reloj.configurar(11, 57);
         // Leemos la nueva hora y la mostramos por consola
@@ -23,7 +23,7 @@ public class RelojLoco
             Thread.sleep(1000);
         }
         System.out.println( "*********************************" );
-    	System.out.println( "****** Adiós al Reloj Loco ******" );
+    	System.out.println( "****** Adiï¿½s al Reloj Loco ******" );
     	System.out.println( "********************************* \n" );
     }
 }
