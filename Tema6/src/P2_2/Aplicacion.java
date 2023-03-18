@@ -57,5 +57,5 @@ public class Aplicacion {
 
 		System.out.println("Las ganancias han sido "+ pv.getGanancias());
 	}
-
+//comentario
 }
