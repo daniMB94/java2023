@@ -3,7 +3,7 @@ package T7E2;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public abstract class Publicacion implements Prestable, Comparable<Publicacion> {
+public class Publicacion implements Prestable, Comparable<Publicacion> {
 
 	protected ArrayList<Autor> autores;
 

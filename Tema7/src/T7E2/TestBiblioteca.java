@@ -79,9 +79,9 @@ public class TestBiblioteca {
 			case 1:
 				System.out.println("Introduce un titulo: ");
 				titulo = sc.nextLine();
-				if (b.buscar(titulo) != null) {
-					b.buscar(titulo).presta();
-					System.out.println(b.buscar(titulo).toString());
+				if (b.buscarBS(titulo) != null) {
+					b.buscarBS(titulo).presta();
+					System.out.println(b.buscarBS(titulo).toString());
 				}
 
 				else
@@ -90,10 +90,10 @@ public class TestBiblioteca {
 			case 2:
 				System.out.println("Introduce un titulo: ");
 				titulo = sc.nextLine();
-				if (b.buscar(titulo) != null) {
-					if (b.buscar(titulo).estaPrestado() == true) {
-						b.buscar(titulo).devuelve();
-						System.out.println(b.buscar(titulo).toString());
+				if (b.buscarBS(titulo) != null) {
+					if (b.buscarBS(titulo).estaPrestado() == true) {
+						b.buscarBS(titulo).devuelve();
+						System.out.println(b.buscarBS(titulo).toString());
 					}
 
 				} else
@@ -102,7 +102,7 @@ public class TestBiblioteca {
 			case 3:
 				System.out.println("Introduce un titulo: ");
 				titulo = sc.nextLine();
-				System.out.println(b.buscar(titulo).toString());
+				System.out.println(b.buscarBS(titulo).toString());
 				break;
 			case 4:
 				break;

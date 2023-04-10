@@ -2,7 +2,7 @@ package T7E2;
 
 import java.util.Objects;
 
-public class Autor {
+public class Autor implements Comparable<Autor>{
 	
 	public String nombre;
 	public String apellidos;
@@ -126,7 +126,7 @@ public class Autor {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellidos, nombre);
+		return Objects.hash(apellidos);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -137,7 +137,13 @@ public class Autor {
 		if (getClass() != obj.getClass())
 			return false;
 		Autor other = (Autor) obj;
-		return Objects.equals(apellidos, other.apellidos) && Objects.equals(nombre, other.nombre);
+		return Objects.equals(apellidos, other.apellidos);
+	}
+
+	@Override
+	public int compareTo(Autor a) {
+		
+		return this.apellidos.compareTo(a.getApellidos());
 	}
 	
 	

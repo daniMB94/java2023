@@ -1,6 +1,7 @@
 package T7E2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BibliotecaTS {
 
@@ -50,7 +51,21 @@ public class BibliotecaTS {
 	public void adquirirMaterial(Publicacion p) {
 		this.publicaciones.add(p);
 	}
+	
+	//Busqueda con binarySearch
+	public Publicacion buscarBS(String titulo) {
+		//Primero hay que ordenar la lista (cuando usamos binary search)
+		Collections.sort(this.publicaciones);
+		
+		//Buscamos el elemento una vez ordenado por titulo
+		int posicion = Collections.binarySearch(this.publicaciones, new Publicacion("", titulo, 0, 0));
+		if(posicion >= 0)
+			return this.publicaciones.get(posicion);
+		else
+			return null;
+	}
 
+	/*
 	public Publicacion buscar(String titulo) {
 		for (Publicacion p : publicaciones) {
 			if (p.getTitulo().toString().equals(titulo))
@@ -60,7 +75,7 @@ public class BibliotecaTS {
 		return null;
 
 	}
-
+*/
 	public String buscar(Autor a) {
 
 		ArrayList<Publicacion> publicacionesAutor = new ArrayList<>();
