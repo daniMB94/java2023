@@ -2,10 +2,11 @@ package T7E2;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.TreeSet;
 
 public class Publicacion implements Prestable, Comparable<Publicacion> {
 
-	protected ArrayList<Autor> autores;
+	protected TreeSet<Autor> autores;
 
 	protected String isbn;
 	protected String titulo;
@@ -28,7 +29,7 @@ public class Publicacion implements Prestable, Comparable<Publicacion> {
 		this.anio = anio;
 		this.paginas = paginas;
 		this.prestado = false;
-		this.autores = new ArrayList<>();
+		this.autores = new TreeSet<>();
 	}
 
 	/**
@@ -104,7 +105,7 @@ public class Publicacion implements Prestable, Comparable<Publicacion> {
 	/**
 	 * @return the autores
 	 */
-	public ArrayList<Autor> getAutores() {
+	public TreeSet<Autor> getAutores() {
 		return autores;
 	}
 
@@ -164,7 +165,16 @@ public class Publicacion implements Prestable, Comparable<Publicacion> {
 			
 		return this.getTitulo().compareTo(p.getTitulo());
 	}
-
+	
+	
+	public void addAutor(Autor a) {
+		this.autores.add(a);
+	}
+	public boolean delAutor(Autor a) {
+		return this.autores.remove(a);
+	}
+	
+/*
 	public void addAutor(String nombre, String apellidos) {
 		Autor aBuscar = new Autor(nombre, apellidos);
 		boolean aniadir = true;
@@ -194,4 +204,5 @@ public class Publicacion implements Prestable, Comparable<Publicacion> {
 			System.out.println("No se puede borrar porque no existe en el ArrayList");
 
 	}
+	*/
 }

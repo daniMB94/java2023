@@ -51,21 +51,21 @@ public class TestBiblioteca {
 		Autor a4 = new Autor("Maria del Carmen", "Vals", 65, "Almeria","Avda del mediterraneo", "mvals@ual.es");
 		
 		
-		l1.addAutor(a1.getNombre(), a1.getApellidos());
-		l2.addAutor(a1.getNombre(), a1.getApellidos());
-		l3.addAutor(a1.getNombre(), a1.getApellidos());
-		l4.addAutor(a1.getNombre(), a1.getApellidos());
-		l5.addAutor(a1.getNombre(), a1.getApellidos());
-		l6.addAutor(a2.getNombre(), a2.getApellidos());
-		l7.addAutor(a2.getNombre(), a2.getApellidos());
-		l8.addAutor(a2.getNombre(), a2.getApellidos());
-		l9.addAutor(a2.getNombre(), a2.getApellidos());
-		l10.addAutor(a2.getNombre(), a2.getApellidos());
+		l1.addAutor(a1);
+		l2.addAutor(a1);
+		l3.addAutor(a1);
+		l4.addAutor(a1);
+		l5.addAutor(a1);
+		l6.addAutor(a2);
+		l7.addAutor(a2);
+		l8.addAutor(a2);
+		l9.addAutor(a2);
+		l10.addAutor(a2);
 
 		
-		r1.addAutor(a3.getNombre(), a3.getApellidos());
-		r1.addAutor(a4.getNombre(), a4.getApellidos());
-		r2.addAutor(a3.getNombre(), a3.getApellidos());
+		r1.addAutor(a3);
+		r1.addAutor(a4);
+		r2.addAutor(a3);
 
 		do {
 
@@ -112,7 +112,7 @@ public class TestBiblioteca {
 
 		//Este syso es para probar el método que devuelve un arraylist de publicaciones de un autor en concreto
 		System.out.println("Veamos las publicaciones en las que aparece Laura Piedra");
-		System.out.println(b.buscar(a3));
+		System.out.println(b.buscarBS(a3.getApellidos()));
 		System.out.println("Ahora veamos las publicaciones en las que aparece Maria del Carmen Vals");
 		System.out.println(a4);
 

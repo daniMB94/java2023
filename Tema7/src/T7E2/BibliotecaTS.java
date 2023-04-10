@@ -75,7 +75,7 @@ public class BibliotecaTS {
 		return null;
 
 	}
-*/
+
 	public String buscar(Autor a) {
 
 		ArrayList<Publicacion> publicacionesAutor = new ArrayList<>();
@@ -94,5 +94,6 @@ public class BibliotecaTS {
 
 		return sb.toString();
 	}
+	*/
 
 }
