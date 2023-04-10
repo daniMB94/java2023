@@ -174,6 +174,8 @@ public class Publicacion implements Prestable, Comparable<Publicacion> {
 		return this.autores.remove(a);
 	}
 	
+	
+	
 /*
 	public void addAutor(String nombre, String apellidos) {
 		Autor aBuscar = new Autor(nombre, apellidos);

@@ -64,6 +64,8 @@ public class BibliotecaTS {
 		else
 			return null;
 	}
+	
+	
 
 	/*
 	public Publicacion buscar(String titulo) {
