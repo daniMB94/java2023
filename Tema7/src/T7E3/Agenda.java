@@ -1,11 +1,14 @@
 package T7E3;
 
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class Agenda {
 
 	// ATRIBUTOS
-	private ArrayList<Contacto> contactos;
+	private TreeMap<String, String> contactos;
+	private int totales;
 
 	/**
 	 * @param contactos
@@ -13,56 +16,48 @@ public class Agenda {
 	// CONSTRUCTOR
 	public Agenda() {
 		super();
-		this.contactos = new ArrayList<>();
-	}
+		this.contactos = new TreeMap<>(new Comparator<String>() {
 
-	// METODOS (Usaremos los métodos de la clase TreeMap)
-	/*
-	protected boolean existeContacto(Contacto c) {
-		int contador = 0;
-		for (Contacto contacto : contactos) {
-			if (contacto.getTelefono().equals(c.getTelefono())) {
-				contador = 1;
+			@Override
+			public int compare(String o1, String o2) {
+
+				return o1.compareTo(o2);
 			}
 
-		}
-		if (contador == 0)
-			return false;
-		else
-			return true;
-
+		});
+	}
+	//GETTERS Y SETTERS
+	public TreeMap<String, String> getContactos() {
+		return contactos;
 	}
 
-	protected void addContacto(Contacto c) {
-		contactos.add(c);
-	}
-
-	protected void listarContactos() {
-		for (Contacto contacto : contactos) {
-			System.out.println(contacto.toString());
-		}
-	}
-
-	protected void buscarContacto(String nombre) {
-		int contador = 0;
-		for (Contacto contacto : contactos) {
-			if (contacto.getNombre().equals(nombre)) {
-				System.out.println(contacto.getTelefono());
-				contador++;
-			}
-
-		}
-		if (contador == 0)
-			System.out.println("Contacto inexistente");
-	}
-
-	protected void eliminarContacto(Contacto c) {
-		contactos.remove(c);
+	public void setContactos(TreeMap<String, String> contactos) {
+		this.contactos = contactos;
 	}
 	
-	protected Contacto obtenerContacto(int posicionContacto) {
-		return contactos.get(posicionContacto);
-		
+	//METODOS
+
+	public void addContacto(String nombre, String tlf) {
+		this.contactos.put(nombre, tlf);
 	}
-	*/
+
+	public StringBuffer listarContactos() {
+		StringBuffer sb = new StringBuffer();
+		String tlf = "***CONTACTOS GUARDADOS***";
+		Set<String> clavesRecorrer = this.contactos.keySet();
+		for (String k : clavesRecorrer) {
+			sb.append(k + " - ");
+
+			tlf = this.contactos.get(k);
+			sb.append(tlf + "\n");
+
+		}
+		return sb;
+	}
+
+	public int totalContactos() {
+		return this.contactos.size();
+	}
+
+	
 }

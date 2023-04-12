@@ -9,23 +9,10 @@ public class AgendaAPP {
 
 	public static void main(String[] args) {
 
-		Map<String, String> agenda = new TreeMap<>(new Comparator<String>() {
-
-			@Override
-			public int compare(String o1, String o2) {
-				
-				return o1.compareTo(o2);
-			}
-			
-		});
-		
-		
-		
-		
+		Agenda agenda = new Agenda();
 
 		Scanner sc = new Scanner(System.in);
 
-		int posicionEliminar = -1;
 		int selector = 0;
 		String nombre = "";
 		String telefono = "";
@@ -54,35 +41,35 @@ public class AgendaAPP {
 				nombre = sc.nextLine();
 				System.out.print("Introduce el número del contacto: ");
 				telefono = sc.nextLine();
-				agenda.put(nombre, telefono);
+				agenda.addContacto(nombre, telefono);
 				nombre = "";
 				telefono = "";
 				break;
 			}
 			case 2: {
 				System.out.println("2. Listar contactos");
-				System.out.println(agenda.values());
+				System.out.println(agenda.listarContactos());
 				break;
 			}
 			case 3: {
 				System.out.println("3. Buscar contactos");
-				System.out.print("Introduce el nombre a buscar");
+				System.out.print("Introduce el nombre para buscar su teléfono: ");
 				nombre = sc.nextLine();
-				System.out.println(agenda.get(nombre));
+				System.out.println(agenda.getContactos().get(nombre));
 				break;
 			}
 			case 4: {
 				System.out.println("4. Eliminar contacto");
 				System.out.println("Introduce el nombre del contacto a eliminar: ");
-				System.out.println(agenda.keySet());
+				System.out.println(agenda.getContactos().keySet());
 				nombre = sc.nextLine();
-				agenda.remove(nombre);
+				agenda.getContactos().remove(nombre);
 				System.out.println();
 				break;
 			}
 			case 5: {
 				System.out.println("2. Listar contactos");
-				System.out.println(agenda.values());
+				System.out.println("Actualmenta hay " + agenda.totalContactos() + " contactos");
 				break;
 			}
 

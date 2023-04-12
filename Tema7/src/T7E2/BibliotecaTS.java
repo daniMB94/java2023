@@ -67,35 +67,5 @@ public class BibliotecaTS {
 	
 	
 
-	/*
-	public Publicacion buscar(String titulo) {
-		for (Publicacion p : publicaciones) {
-			if (p.getTitulo().toString().equals(titulo))
-				return p;
-
-		}
-		return null;
-
-	}
-
-	public String buscar(Autor a) {
-
-		ArrayList<Publicacion> publicacionesAutor = new ArrayList<>();
-		StringBuilder sb = new StringBuilder();
-		for (Publicacion p : publicaciones) {
-
-			if (p.getAutores().indexOf(a) >= 0)
-				publicacionesAutor.add(p);
-
-		}
-
-		for (Publicacion pa : publicacionesAutor) {
-			sb.append(pa.toString());
-			sb.append("\n");
-		}
-
-		return sb.toString();
-	}
-	*/
 
 }
