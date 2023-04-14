@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class OrdenacionListas {
 	
-	public Queue cola;
-	public LinkedList<Integer> colaGeneral;
+	public static LinkedList<Integer> colaGeneral = new LinkedList<>();
+	public Queue<Integer> cola;
 	
 	public OrdenacionListas() {
 		super();
@@ -23,15 +23,31 @@ public class OrdenacionListas {
 		i3 = Integer.parseInt(sc.nextLine());
 		i4 = Integer.parseInt(sc.nextLine());
 		this.cola = new LinkedList<>(Arrays.asList(i1, i2, i3, i4));
-		this.colaGeneral = new LinkedList<>();
 	}
+	
 	
 	public LinkedList<Integer> OrdenacionMezcla(Queue<Integer> c1, Queue<Integer> c2){
 		
-		for(int i = 0; i < c1.size(); i++) {
-			
-		}
 		
+		while(!c1.isEmpty() && !c2.isEmpty()) {
+
+			if(c1.peek() <= c2.peek())
+				this.colaGeneral.add(c1.poll());
+			else
+				this.colaGeneral.add(c2.poll());
+		}
+		if(c1.isEmpty())
+			if(c2.isEmpty())
+				return this.colaGeneral;
+			else {
+				while(!c2.isEmpty())
+				this.colaGeneral.add(c2.poll());
+			}
+		else
+			while(!c1.isEmpty()) {
+				this.colaGeneral.add(c1.poll());
+			}
+				
 		return this.colaGeneral;
 	}
 	
