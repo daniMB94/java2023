@@ -22,7 +22,6 @@ public class OrdenacionListas {
 		i3 = Integer.parseInt(sc.nextLine());
 		i4 = Integer.parseInt(sc.nextLine());
 		this.cola = new LinkedList<>(Arrays.asList(i1, i2, i3, i4));
-		sc.close();
 	}
 	//Se usará para crear una clase para usar el método y evitar que se vuelvan a pedir 4 números
 	public OrdenacionListas(Integer i1) {
