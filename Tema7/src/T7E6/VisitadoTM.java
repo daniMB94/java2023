@@ -1,17 +1,19 @@
 package T7E6;
 
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeMap;
 
 public class VisitadoTM {
 
-	public static TreeMap<String, List<String>> tmVisitado;
+	public TreeMap<String, List<String>> tmVisitado;
+
+	public VisitadoTM() {
+		super();
+		this.tmVisitado = new TreeMap<>(Comparator.reverseOrder());
+	}
 
 
-	
-	
-	
 	
 	
 }

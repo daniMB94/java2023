@@ -32,7 +32,8 @@ public class OrdenacionListas {
 	
 	public LinkedList<Integer> OrdenacionMezcla(Queue<Integer> c1, Queue<Integer> c2){
 		
-		
+		// Mientras que la cola 1 y la cola 2 tengan elementos se entrará en el bucle y se hara una comparación para luego
+		// hacer un poll del más bajo
 		while(!c1.isEmpty() && !c2.isEmpty()) {
 
 			if(c1.peek() <= c2.peek())
@@ -40,13 +41,18 @@ public class OrdenacionListas {
 			else
 				colaGeneral.add(c2.poll());
 		}
+		
+		// Posteriormente, si la cola 1 está vacía y la cola 2 está vacía se devolvera la colaGeneral
 		if(c1.isEmpty())
 			if(c2.isEmpty())
 				return colaGeneral;
+		// En caso contrario, mientras la cola 2 tenga elementos se irán añadiendo a la colaGeneral
 			else {
 				while(!c2.isEmpty())
 				colaGeneral.add(c2.poll());
 			}
+		// Si la cola 1 no está vacía quiere decír que la cola 2 si lo estará. Por lo tanto habrá que añadir todos los
+		// elementos de la cola 1 a la colaGeneral
 		else
 			while(!c1.isEmpty()) {
 				colaGeneral.add(c1.poll());

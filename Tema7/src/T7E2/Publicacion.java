@@ -175,36 +175,5 @@ public class Publicacion implements Prestable, Comparable<Publicacion> {
 	}
 	
 	
-	
-/*
-	public void addAutor(String nombre, String apellidos) {
-		Autor aBuscar = new Autor(nombre, apellidos);
-		boolean aniadir = true;
-		for (Autor a : autores) {
-			if (a.equals(aBuscar))
-				aniadir = false;
 
-		}
-		if (aniadir)
-			autores.add(new Autor(nombre, apellidos));
-		else
-			System.out.println("Ese autor ya se encuentra en el ArrayList");
-
-	}
-
-	public void deleteAutor(String nombre, String apellidos) {
-		Autor aBuscar = new Autor(nombre, apellidos);
-		boolean borrar = false;
-		for (Autor a : autores) {
-			if (a.equals(aBuscar))
-				borrar = true;
-			aBuscar = a;
-		}
-		if (borrar)
-			autores.remove(aBuscar);
-		else
-			System.out.println("No se puede borrar porque no existe en el ArrayList");
-
-	}
-	*/
 }

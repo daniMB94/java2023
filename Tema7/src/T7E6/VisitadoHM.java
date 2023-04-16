@@ -8,7 +8,7 @@ import java.util.List;
 
 public class VisitadoHM<T> {
 
-	public static HashMap<String, List<String>> hmVisitados;
+	public HashMap<String, List<String>> hmVisitados;
 
 	public VisitadoHM() {
 		super();
@@ -19,16 +19,16 @@ public class VisitadoHM<T> {
 
 	public List<String> addPais(String pais) {
 
-		if (hmVisitados.containsKey(pais)) {
+		if (this.hmVisitados.containsKey(pais)) {
 			return null;
 		} else
-			return hmVisitados.put(pais, new ArrayList<String>());
+			return this.hmVisitados.put(pais, new ArrayList<String>());
 
 	}
 
 	public boolean addCiudad(String pais, String ciudad) {
 
-		return hmVisitados.get(pais).add(ciudad);
+		return this.hmVisitados.get(pais).add(ciudad);
 
 	}
 
@@ -36,11 +36,11 @@ public class VisitadoHM<T> {
 
 		StringBuffer sb = new StringBuffer();
 
-		for (String pais : hmVisitados.keySet()) {
+		for (String pais : this.hmVisitados.keySet()) {
 
 			sb.append(pais + ":\n");
 
-			for (String ciudad : hmVisitados.get(pais)) {
+			for (String ciudad : this.hmVisitados.get(pais)) {
 				sb.append("\t\t+" + ciudad + "\n");
 			}
 
@@ -48,21 +48,14 @@ public class VisitadoHM<T> {
 
 		return sb;
 	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("VisitadoHM []");
-		return builder.toString();
-	}
-
+	
 	public boolean heVisitado(String pais, String ciudad) {
 		// Primero comprobamos que hemos estado en ese país
-		if (hmVisitados.containsKey(pais)) {
+		if (this.hmVisitados.containsKey(pais)) {
 			ArrayList<String> ciudadesOrdenadas = new ArrayList<>();
 
 			// Metemos los valores de ese país en una arrayList de String
-			for (String ciudadVisitada : hmVisitados.get(pais)) {
+			for (String ciudadVisitada : this.hmVisitados.get(pais)) {
 				ciudadesOrdenadas.add(ciudadVisitada);
 			}
 			// Ordenamos el ArryList
@@ -79,5 +72,14 @@ public class VisitadoHM<T> {
 
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("VisitadoHM []");
+		return builder.toString();
+	}
+
+	
 
 }

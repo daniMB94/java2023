@@ -1,5 +1,9 @@
 package T7E6;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+
 public class TestVisitaPaises {
 
 	public static void main(String[] args) {
@@ -42,6 +46,7 @@ public class TestVisitaPaises {
 		System.out.println(hm.heVisitado("Italia", "Modena"));
 		
 		// Ahora comprobamos la ordenación inversa por paises con la clase VisitadoTM
+		VisitadoTM tm = new VisitadoTM();
 		
 		
 	}
