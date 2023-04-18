@@ -1,4 +1,4 @@
-package T7E8;
+ package T7E8;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -15,6 +15,14 @@ public class Expediente {
 		this.estudiante = estudiante;
 	}
 	
+	public Estudiante getEstudiante() {
+		return estudiante;
+	}
+
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
+	}
+
 	public boolean isActivo() {
 		return activo;
 	}
