@@ -32,7 +32,8 @@ public class TestExpedientesAlumnos {
 		nc2.addNota("Programación", 8.00);
 		nc2.addNota("Entornos de desarrollo", 8.00);
 		
-		Expediente exp1 = new Expediente();
+		Expediente exp1 = new Expediente(true, e1);
+		Expediente exp2 = new Expediente(true, e2);
 		
 		
 	}

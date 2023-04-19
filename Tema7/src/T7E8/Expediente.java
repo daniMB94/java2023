@@ -13,6 +13,7 @@ public class Expediente {
 		super();
 		this.activo = activo;
 		this.estudiante = estudiante;
+		this.notas = new HashSet<>();
 	}
 	
 	public Estudiante getEstudiante() {
