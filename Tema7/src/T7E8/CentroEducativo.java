@@ -1,5 +1,6 @@
 package T7E8;
 
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.TreeSet;
 
@@ -19,7 +20,15 @@ public class CentroEducativo {
 		this.localidad = localidad;
 		this.telefono = telefono;
 		this.email = email;
-		this.expedientes = new TreeSet<>();
+		this.expedientes = new TreeSet<>(new Comparator<Expediente>() {
+
+			@Override
+			public int compare(Expediente o1, Expediente o2) {
+				
+				return o1.getEstudiante().getDni().compareTo(o2.getEstudiante().getDni());
+			}
+			
+		});
 	}
 
 	public TreeSet<Expediente> getExpedientes() {

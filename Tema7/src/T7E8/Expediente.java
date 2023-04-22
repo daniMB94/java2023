@@ -3,7 +3,9 @@
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Expediente {
+import T7E8.NotasCurso.Etapa;
+
+public class Expediente implements Comparable<Expediente> {
 
 	private HashSet<NotasCurso> notas;
 	private boolean activo;
@@ -62,7 +64,7 @@ public class Expediente {
 		this.notas.add(nc);
 	}
 	
-	public String mostrarNotas(int curso, String etapa) {
+	public String mostrarNotas(int curso, Etapa etapa) {
 		StringBuilder sb = new StringBuilder();
 		for(NotasCurso nc: this.notas) {
 			if(nc.getEtapa().equals(etapa) && nc.getCurso() == curso)
@@ -70,6 +72,12 @@ public class Expediente {
 				sb.append("\n");
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public int compareTo(Expediente exp) {
+		
+		return this.getEstudiante().getDni().compareTo(exp.getEstudiante().getDni());
 	}
 	
 }

@@ -103,12 +103,17 @@ public class NotasCurso {
 		
 		for(String asignatura: this.notas.keySet()) {
 			sb.append(asignatura);
-			sb.append("\t\t");
-			sb.append(this.notas.get(asignatura));
-			sb.append("---------------------------\n");
+			if(asignatura.length()>16)
+				sb.append("\t");
+			else if(asignatura.length()>8)
+				sb.append("\t\t");
+			else
+				sb.append("\t\t\t");
+			sb.append(this.notas.get(asignatura) + "\n");
 		}
+		sb.append("---------------------------\n");
 		return sb.toString();
 	}
-	
+
 	
 }

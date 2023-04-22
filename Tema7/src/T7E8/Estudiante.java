@@ -79,6 +79,26 @@ public class Estudiante {
 		Estudiante other = (Estudiante) obj;
 		return Objects.equals(dni, other.dni);
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Estudiante [dni=");
+		builder.append(dni);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", apellidos=");
+		builder.append(apellidos);
+		builder.append(", f_nacimiento=");
+		builder.append(f_nacimiento);
+		builder.append(", direccion=");
+		builder.append(direccion);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", telefono=");
+		builder.append(telefono);
+		builder.append("]");
+		return builder.toString();
+	}
 	
 	
 }
