@@ -1,6 +1,6 @@
 package TE7E7;
 
-public class JugadorBasket {
+public class JugadorBasket implements Comparable<JugadorBasket> {
 
 	private String nombre;
 	private String posicion;
@@ -36,6 +36,12 @@ public class JugadorBasket {
 		builder.append(posicion);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	@Override
+	public int compareTo(JugadorBasket o) {
+		
+		return this.getNombre().compareTo(o.getNombre());
 	}
 	
 
