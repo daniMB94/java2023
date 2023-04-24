@@ -34,9 +34,7 @@ public class Genero {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Genero [id=");
-		builder.append(id);
-		builder.append(", nombre=");
+		builder.append("Genero [nombre=");
 		builder.append(nombre);
 		builder.append("]");
 		return builder.toString();

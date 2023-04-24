@@ -3,7 +3,7 @@ package practica2ejer2;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Director {
+public class Director implements Comparable<Director> {
 
 	private static int idGeneral = 0;
 	private int id;
@@ -38,6 +38,7 @@ public class Director {
 		return peliculas;
 	}
 
+	//Se tiene que eliminar Peliculas porque si no da error al imprimir Peliculas
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -45,8 +46,6 @@ public class Director {
 		builder.append(id);
 		builder.append(", nombre=");
 		builder.append(nombre);
-		builder.append(", peliculas=");
-		builder.append(peliculas);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -69,11 +68,10 @@ public class Director {
 	}
 	
 	public void addPelicula(Pelicula p) {
-		if(this.peliculas.indexOf(p) > 0) {
+		if(this.peliculas.indexOf(p) <= 0) 
 			this.peliculas.add(p);
-			System.out.println("Añadido");;
-		} else
-			System.out.println("Ese elemento ya existe en la lista");;
+ else
+			System.out.println("Ese elemento ya existe en la lista");
 	}
 	
 	public void deletePelicula(Pelicula p) {
@@ -83,6 +81,12 @@ public class Director {
 		else
 			this.peliculas.remove(posicion);
 		
+	}
+
+	@Override
+	public int compareTo(Director o) {
+		
+		return this.getNombre().compareTo(o.getNombre());
 	}
 	
 }

@@ -1,5 +1,7 @@
 package practica2ejer2;
 
+import java.util.ArrayList;
+
 public class TestPeliculas {
 
 	public static void main(String[] args) {
@@ -7,7 +9,6 @@ public class TestPeliculas {
 		Genero Horror = new Genero("horror");
 		Genero Scifi = new Genero("sci-fi");
 		Genero Comedia = new Genero("comedia");
-		Genero Romance = new Genero("romance");
 		Genero Thriller = new Genero("thriller");
 		Genero Drama = new Genero("drama");
 		Genero Accion = new Genero("accion");
@@ -70,6 +71,52 @@ public class TestPeliculas {
 		Goodfellas.addDirector(MartinScorsese);
 		ElLoboDeWallStreet.addDirector(MartinScorsese);
 		
+		
+		ArrayList<Pelicula> peliculas = new ArrayList<>();
+		
+		peliculas.add(ElLoboDeWallStreet);
+		peliculas.add(Alien);
+		peliculas.add(ApocalypseNow);
+		peliculas.add(BladeRunner);
+		peliculas.add(Casino);
+		peliculas.add(ElPadrino);
+		peliculas.add(Gladiator);
+		peliculas.add(Goodfellas);
+		peliculas.add(Origen);
+		peliculas.add(PullFiction);
+		peliculas.add(ReservoirDogs);
+		peliculas.add(Tenet);
+		
+		peliculas.stream()
+			.sorted((x,y) -> x.getAnioInteger().compareTo(y.getAnioInteger()))
+			.forEach(System.out::println);
+
+		System.out.println("------------------------");
+		
+		peliculas.stream()
+			.filter(c -> c.getGeneros().contains(Scifi))
+			.filter(c -> c.getAnio() > 2000)
+			.forEach(System.out::println);
+
+		System.out.println("------------------------");
+		
+		String tituloLargo = peliculas.stream()
+								.max((x,y) -> x.getTitulo().length()-y.getTitulo().length())
+								.get()
+								.getTitulo();
+		System.out.println(tituloLargo);
+		
+		System.out.println("------------------------");
+		
+		peliculas.stream()
+			.flatMap(c -> c.getDirectores().stream())
+			.distinct()
+			.map(c -> c.getNombre())
+			.map(String::toUpperCase)
+			.sorted()
+			.forEach(System.out::println);
+
+		System.out.println("-------------------------");
 		
 		
 	}

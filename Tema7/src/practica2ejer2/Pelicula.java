@@ -37,6 +37,9 @@ public class Pelicula {
 	public int getAnio() {
 		return anio;
 	}
+	public Integer getAnioInteger() {
+		return anio;
+	}
 
 	public void setAnio(int anio) {
 		this.anio = anio;
@@ -87,11 +90,10 @@ public class Pelicula {
 	}
 	
 	public void addGenero(Genero g) {
-		if(this.generos.indexOf(g) > 0) {
+		if(this.generos.indexOf(g) <= 0) 
 			this.generos.add(g);
-			System.out.println("Añadido");;
-		} else
-			System.out.println("Ese elemento ya existe en la lista");;
+ else
+			System.out.println("Ese elemento ya existe en la lista");
 	}
 	
 	public void deleteGenero(Genero g) {
@@ -103,11 +105,10 @@ public class Pelicula {
 		
 	}
 	public void addDirector(Director d) {
-		if(this.directores.indexOf(d) > 0) {
+		if(this.directores.indexOf(d) <= 0) 
 			this.directores.add(d);
-			System.out.println("Añadido");;
-		} else
-			System.out.println("Ese elemento ya existe en la lista");;
+ else
+			System.out.println("Ese elemento ya existe en la lista");
 	}
 	
 	public void deleteDirector(Director d) {
@@ -118,5 +119,8 @@ public class Pelicula {
 			this.directores.remove(posicion);
 		
 	}
+
+
+
 	
 }
