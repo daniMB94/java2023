@@ -1,6 +1,8 @@
 package practica2ejer2;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class TestPeliculas {
 
@@ -118,7 +120,15 @@ public class TestPeliculas {
 
 		System.out.println("-------------------------");
 		
+		Map<String, Integer> directorNPeliculas = peliculas.stream()
+															.flatMap(c -> c.getDirectores().stream())
+															.distinct()
+															.collect(Collectors.toMap(c -> c.getNombre(), c -> c.getPeliculas().size()));
 		
+		directorNPeliculas.forEach((k, v) -> System.out.println("Director: " + k + " -> N. Peliculas: " + v));
+		
+		System.out.println("-------------------------");
+
 	}
 	
 }
