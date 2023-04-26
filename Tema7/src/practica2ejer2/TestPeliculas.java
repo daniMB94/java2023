@@ -89,18 +89,20 @@ public class TestPeliculas {
 		peliculas.add(ReservoirDogs);
 		peliculas.add(Tenet);
 		
+		System.out.println("pelisOrdenadasPorAño(): muestra todas las películas ordenadas por año.");
+		
 		peliculas.stream()
 			.sorted((x,y) -> x.getAnioInteger().compareTo(y.getAnioInteger()))
 			.forEach(System.out::println);
 
-		System.out.println("------------------------");
+		System.out.println("scifi2000(): muestra las películas de ciencia ficción posteriores al año 2000");
 		
 		peliculas.stream()
 			.filter(c -> c.getGeneros().contains(Scifi))
 			.filter(c -> c.getAnio() > 2000)
 			.forEach(System.out::println);
 
-		System.out.println("------------------------");
+		System.out.println("tituloMasLargo(): muestra la película cuyo título es más largo");
 		
 		String tituloLargo = peliculas.stream()
 								.max((x,y) -> x.getTitulo().length()-y.getTitulo().length())
@@ -108,7 +110,7 @@ public class TestPeliculas {
 								.getTitulo();
 		System.out.println(tituloLargo);
 		
-		System.out.println("------------------------");
+		System.out.println("directoresMayúsculas(): muestra los nombres de los directores ordenados y en mayúsculas");
 		
 		peliculas.stream()
 			.flatMap(c -> c.getDirectores().stream())
@@ -118,7 +120,8 @@ public class TestPeliculas {
 			.sorted()
 			.forEach(System.out::println);
 
-		System.out.println("-------------------------");
+		System.out.println("numPelis(): muestra el director y al lado el número de películas de cada director. Hay que usar \r\n"
+				+ "collect");
 		
 		Map<String, Integer> directorNPeliculas = peliculas.stream()
 															.flatMap(c -> c.getDirectores().stream())
@@ -127,7 +130,7 @@ public class TestPeliculas {
 		
 		directorNPeliculas.forEach((k, v) -> System.out.println("Director: " + k + " -> N. Peliculas: " + v));
 		
-		System.out.println("-------------------------");
+		System.out.println("dramaYMafia(): muestra todas las películas de drama y mafia. Usa dos Predicate");
 
 
 	}
