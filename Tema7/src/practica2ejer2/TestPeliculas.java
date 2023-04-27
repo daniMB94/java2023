@@ -132,6 +132,16 @@ public class TestPeliculas {
 		
 		System.out.println("dramaYMafia(): muestra todas las películas de drama y mafia. Usa dos Predicate");
 
-
+		System.out.println("Filmografías(): muestra las películas de cada director ordenadas por año. Que aparezca nombre \r\n"
+				+ "de director y debajo sus películas ordenadas por año.");
+		
+		peliculas.stream()
+			.flatMap(c -> c.getDirectores().stream())
+			.distinct()
+			.sorted((x, y) -> x.getPeliculas().)
+			.forEach(c -> {
+				System.out.println(c.getNombre());
+				c.getPeliculas().forEach(p -> System.out.println(p.getTitulo() + " " + p.getAnio()));
+			});
 	}
 }
