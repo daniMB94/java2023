@@ -40,11 +40,7 @@ public class Juego {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Juego [nombre=");
 		builder.append(nombre);
-		builder.append(", plataforma=");
-		builder.append(plataforma);
-		builder.append("]");
 		return builder.toString();
 	}
 

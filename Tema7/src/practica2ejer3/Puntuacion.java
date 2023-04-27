@@ -54,6 +54,7 @@ public class Puntuacion {
 		builder.append(partidasGanadas);
 		builder.append(" - PP: ");
 		builder.append(partidasPerdidas);
+		builder.append("\n");
 		return builder.toString();
 	}
 	
