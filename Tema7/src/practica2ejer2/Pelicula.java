@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Pelicula {
 
 	private static int idGeneral = 0;
+	
 	private int id;
 	private String titulo;
 	private int anio;
@@ -14,8 +15,7 @@ public class Pelicula {
 	
 	public Pelicula(String titulo, int anio) {
 		super();
-		idGeneral++;
-		this.id = idGeneral;
+		this.id = Pelicula.idGeneral++;
 		this.titulo = titulo;
 		this.anio = anio;
 		this.generos = new ArrayList<>();

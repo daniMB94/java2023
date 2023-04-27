@@ -138,7 +138,6 @@ public class TestPeliculas {
 		peliculas.stream()
 			.flatMap(c -> c.getDirectores().stream())
 			.distinct()
-			.sorted((x, y) -> x.getPeliculas().)
 			.forEach(c -> {
 				System.out.println(c.getNombre());
 				c.getPeliculas().forEach(p -> System.out.println(p.getTitulo() + " " + p.getAnio()));

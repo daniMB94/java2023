@@ -9,8 +9,7 @@ public class Genero {
 	private String nombre;
 	public Genero(String nombre) {
 		super();
-		idGeneral++;
-		this.id = this.idGeneral;
+		this.id = Genero.idGeneral++;
 		this.nombre = nombre;
 	}
 	

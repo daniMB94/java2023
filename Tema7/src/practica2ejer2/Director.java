@@ -12,8 +12,7 @@ public class Director implements Comparable<Director> {
 	
 	public Director(String nombre) {
 		super();
-		idGeneral++;
-		this.id = idGeneral;
+		this.id = Director.idGeneral++;
 		this.nombre = nombre;
 		this.peliculas = new ArrayList<>();
 	}
