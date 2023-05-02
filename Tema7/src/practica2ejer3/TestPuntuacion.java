@@ -1,9 +1,6 @@
 package practica2ejer3;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.util.Scanner;
 
 public class TestPuntuacion {
 	
@@ -128,7 +125,17 @@ public class TestPuntuacion {
 		
 		System.out.println("Método que reciba como parámetro un Usuario y muestre todas sus puntuaciones (puntos, \r\n"
 				+ "partidas jugadas, …) ordenadas por puntos");
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Introduce el nick del usuario del cual quieras saber su puntuación: ");
+		String nick = sc.nextLine();
 		
+		st.getJugadores().stream()
+			.distinct()
+			.filter(j -> j.getNick().equals(nick))
+			.map(p -> p.getPuntuaciones())
+			.forEach(System.out::println);
 		
+		System.out.println("Métdo pinte el ranking de los juegos. Es decir, cada juego y debajo el ranking de los \r\n"
+				+ "jugadores que lo juegan ordenados por puntuación");
 	}
 }
