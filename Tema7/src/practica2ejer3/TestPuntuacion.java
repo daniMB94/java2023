@@ -1,6 +1,8 @@
 package practica2ejer3;
 
+import java.util.Comparator;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class TestPuntuacion {
 	
@@ -138,6 +140,30 @@ public class TestPuntuacion {
 		System.out.println("Métdo pinte el ranking de los juegos. Es decir, cada juego y debajo el ranking de los \r\n"
 				+ "jugadores que lo juegan ordenados por puntuación");
 		
-		
+		st.getJugadores().stream()
+			.distinct()
+			.sorted(new Comparator<Usuario>() {
+
+				@Override
+				public int compare(Usuario o1, Usuario o2) {
+					int puntuacion1 = (o1.getPuntuaciones().values().stream()
+																	.map(c -> c.getPuntos())
+																	.collect(Collectors.summingInt( Integer::intValue )));
+					int puntuacion2 = (o2.getPuntuaciones().values().stream()
+							.map(c -> c.getPuntos())
+							.collect(Collectors.summingInt( Integer::intValue )));							
+					
+					if(puntuacion1 > puntuacion2)
+						return 1;
+					else if(puntuacion2 > puntuacion1)
+						return -1;
+					else
+						return 0;
+					
+				}
+				
+			})
+			.collect(Collectors.toMap(u -> u.getNick(), p -> p.getPuntuaciones()))
+			.forEach((u, p) -> System.out.println(u.toString() + ", " + p.toString()));
 	}
 }

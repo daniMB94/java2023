@@ -22,6 +22,11 @@ public class Puntuacion {
 	public int getPuntos() {
 		return puntos;
 	}
+	
+	public Integer getPuntosInteger() {
+		Integer puntosInteger = this.puntos;
+		return puntosInteger;
+	}
 
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
