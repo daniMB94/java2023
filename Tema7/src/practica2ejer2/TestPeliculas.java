@@ -1,6 +1,7 @@
 package practica2ejer2;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -140,7 +141,9 @@ public class TestPeliculas {
 			.distinct()
 			.forEach(c -> {
 				System.out.println(c.getNombre());
-				c.getPeliculas().forEach(p -> System.out.println(p.getTitulo() + " " + p.getAnio()));
+				c.getPeliculas().stream()
+								.sorted(Comparator.comparing(Pelicula::getAnio))
+								.forEach(p -> System.out.println("\t" + p.getTitulo() + " " + p.getAnio()));
 			});
 	}
 }
