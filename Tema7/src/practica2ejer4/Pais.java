@@ -118,7 +118,12 @@ public class Pais implements Comparable<Pais> {
 
 
 
-
+	/**
+	 * @return the ciudades
+	 */
+	public List<Ciudad> getCiudades() {
+		return ciudades;
+	}
 
 	@Override
 	public String toString() {
@@ -164,6 +169,11 @@ public class Pais implements Comparable<Pais> {
 	public void delCiudad(Ciudad c) {
 		if(this.ciudades.indexOf(c) >= 0)
 			this.ciudades.remove(c);
+	}
+	
+	public double densidadPoblacion() {
+		double densidad = this.poblacion / this.superficie;
+		return densidad;
 	}
 
 	@Override
