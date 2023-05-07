@@ -160,17 +160,27 @@ public class Pais implements Comparable<Pais> {
 		Pais other = (Pais) obj;
 		return codigoPais == other.codigoPais;
 	}
-
+	/**
+	 * Aniade la ciudad c en caso de que esta no se encuentre ya en el arraylist
+	 * @param c
+	 */
 	public void addCiudad(Ciudad c) {
 		if(this.ciudades.indexOf(c) < 0) {
 			this.ciudades.add(c);
 		}
 	}
+	/**
+	 * Elimina la ciudad c en caso de que esta se encuentre en el arraylist
+	 * @param c
+	 */
 	public void delCiudad(Ciudad c) {
 		if(this.ciudades.indexOf(c) >= 0)
 			this.ciudades.remove(c);
 	}
-	
+	/**
+	 * Devuelve el ratio poblacion / ciudad de un lugar. También se conoce como densidad de población
+	 * @return
+	 */
 	public double densidadPoblacion() {
 		double densidad = this.poblacion / this.superficie;
 		return densidad;

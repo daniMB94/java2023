@@ -235,14 +235,18 @@ public class TestCiudades {
 			.forEach(System.out::println);
 	
 		System.out.println("------------------");
-		System.out.println("Muestra cada país y su ciudad más poblad");
+		System.out.println("Muestra cada país y su ciudad más poblada");
 		
-		//Solo muestro el país más poblado
+		//Solo muestro el país más poblado porque mis ciudades no tienen poblacion
 		
 		paises.stream()
 			.distinct()
-			.map(c -> c.getPoblacionInt())
-			.max(Comparator.comparing(null))
+			.max(Comparator.comparing(Pais::getPoblacion))
+			.stream()
+			.map(c -> c.getNombre())
+			.forEach(System.out::println);
+		
+		
 	
 	}
 
