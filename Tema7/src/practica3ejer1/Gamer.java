@@ -1,5 +1,7 @@
 package practica3ejer1;
 
+import java.util.Objects;
+
 public class Gamer {
 
 	enum Nivel {
@@ -43,6 +45,35 @@ public class Gamer {
 	}
 	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Gamer [nick=");
+		builder.append(nick);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", juego=");
+		builder.append(juego);
+		builder.append(", nivel=");
+		builder.append(nivel);
+		builder.append("]");
+		return builder.toString();
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(nick);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Gamer other = (Gamer) obj;
+		return Objects.equals(nick, other.nick);
 	}
 	
 	
