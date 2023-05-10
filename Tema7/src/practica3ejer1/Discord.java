@@ -58,16 +58,15 @@ public class Discord {
 		
 		try {
 			List<String> lineas = Files.readAllLines(f1);
-			Set<Gamer> gamers = new HashSet<>();
 			
-			gamers = lineas.stream()
-				.map(linea -> {
-						String[] atributos = linea.split(";");
-						return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
-				})
-				.collect(Collectors.toSet());
 			
-			this.setGamers(getGamers());
+			this.gamers = (HashSet) lineas.stream()
+							.map(linea-> {
+									String[] atributos = linea.split(";");
+									return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
+							})
+							.collect(Collectors.toSet());
+
 			exitoLectura = true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
