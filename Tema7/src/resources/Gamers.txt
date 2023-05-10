@@ -1,0 +1,4 @@
+nick1;nick1@gmail.com;fortnite;DIOS
+nick1;nick1@gmail.com;mariokart;PAQUETE
+nick1;nick1@gmail.com;COD;MALILLO
+nick1;nick1@gmail.com;PUBG;DIOS

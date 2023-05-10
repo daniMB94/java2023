@@ -7,6 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import practica3ejer1.Gamer.Nivel;
 
 public class Discord {
 
@@ -26,6 +31,15 @@ public class Discord {
 		this.gamers = gamers;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Discord [gamers=");
+		builder.append(gamers);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	public void addGamer(Gamer g) {
 		this.gamers.add(g);
 	}
@@ -43,9 +57,17 @@ public class Discord {
 		boolean exitoLectura = false;
 		
 		try {
-			BufferedReader br = Files.newBufferedReader(f1);
-			//Llamar al constructor de Gamer para crear un objeto Gamer por cada fila de texto del archivo que se está leyendo
+			List<String> lineas = Files.readAllLines(f1);
+			Set<Gamer> gamers = new HashSet<>();
 			
+			gamers = lineas.stream()
+				.map(linea -> {
+						String[] atributos = linea.split(";");
+						return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
+				})
+				.collect(Collectors.toSet());
+			
+			this.setGamers(getGamers());
 			exitoLectura = true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -69,7 +91,7 @@ public class Discord {
 	 * @return
 	 */
 	public String listGamers(){
-		String infoGamer;
+		String infoGamer = null;
 		
 		return infoGamer = this.gamers.stream()
 						.toString();
