@@ -1,12 +1,12 @@
 package practica3ejer1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Discord {
 
@@ -29,8 +29,8 @@ public class Discord {
 	public void addGamer(Gamer g) {
 		this.gamers.add(g);
 	}
-	public void removeGamer(Gamer g) {
-		this.gamers.remove(g);
+	public boolean removeGamer(Gamer g) {
+		return this.gamers.remove(g);
 	}
 	
 	/**
@@ -74,6 +74,34 @@ public class Discord {
 		return infoGamer = this.gamers.stream()
 						.toString();
 					
+	}
+	
+	public void saveGamers(String uri) {
+		//Fichero a leer
+		Path f1 = Paths.get(uri);
+		//Fichero a escribir
+		Path f2 = Paths.get(uri);
+		
+		
+		try {
+			//Obtenemos BufferedReader para el fichero a leer
+			BufferedReader br = Files.newBufferedReader(f1);
+			
+			//Obtenemos BufferedReader para el fichero a escribir
+			BufferedWriter bw = Files.newBufferedWriter(f2);
+			
+			String informacion = listGamers();
+			while((informacion = br.readLine()) != null) {
+				bw.write(informacion);
+				bw.newLine();
+			}
+			bw.close();
+			br.close();
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 	}
 	
 }
