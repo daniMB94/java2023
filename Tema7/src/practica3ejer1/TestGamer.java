@@ -38,7 +38,7 @@ public class TestGamer {
 				break;
 			}
 			case 2: {
-				
+				discord.removeGamer(null);
 				break;
 			}
 			case 3: {
