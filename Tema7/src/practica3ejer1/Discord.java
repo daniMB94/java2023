@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import practica3ejer1.Gamer.Nivel;
@@ -40,8 +40,23 @@ public class Discord {
 		return builder.toString();
 	}
 
-	public void addGamer(Gamer g) {
-		this.gamers.add(g);
+	public void addGamer(String atributos) {
+		StringBuilder sb = new StringBuilder();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Introduce el nick: ");
+		String nick = sc.nextLine();
+		sb.append(nick + ";");
+		System.out.print("Introduce el email: ");
+		String email = sc.nextLine();
+		sb.append(email + ";");
+		System.out.print("Introduce el juego: ");
+		String juego = sc.nextLine();
+		sb.append(juego + ";");
+		System.out.print("Introduce el nivel: ");
+		String nivel = sc.nextLine();
+		Nivel.valueOf(nivel);
+//FALTA POR TERMINAR
 	}
 	public boolean removeGamer(Gamer g) {
 		return this.gamers.remove(g);

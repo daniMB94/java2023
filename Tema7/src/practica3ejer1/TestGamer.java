@@ -17,6 +17,10 @@ public class TestGamer {
 
 		int opcion = 0;
 		Scanner sc = new Scanner(System.in);
+		
+		//Cargamos los jugadores inicialmente a partir del archivo
+		discord.loadGamers(uri);
+		System.out.println("Jugadores aniadidos correctamente"  + "\n");
 
 		
 		while (opcion != 5) {
@@ -32,8 +36,7 @@ public class TestGamer {
 			switch (opcion) {
 			case 1: {
 				
-				discord.loadGamers(uri);
-				System.out.println("Jugadores aniadidos correctamente"  + "\n");
+				discord.addGamer(null);
 
 				break;
 			}
@@ -42,15 +45,13 @@ public class TestGamer {
 				break;
 			}
 			case 3: {
-
+				discord.findGamer(null);
 				break;
 			}
 			case 4: {
-				try {
+				
 					System.out.println(discord.listGamers());
-				} catch (Exception e) {
-					System.out.println("Error al listar la información de los Gamers"  + "\n");
-				}
+				
 				break;
 			}
 			case 5: {
