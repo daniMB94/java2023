@@ -16,10 +16,10 @@ import practica3ejer1.Gamer.Nivel;
 public class Discord {
 
 	private HashSet gamers;
-	
+
 	public Discord() {
 		super();
-		//Método loadGamers
+		// Método loadGamers
 		this.gamers = new HashSet<>();
 	}
 
@@ -30,7 +30,7 @@ public class Discord {
 	public void setGamers(HashSet gamers) {
 		this.gamers = gamers;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -40,47 +40,46 @@ public class Discord {
 		return builder.toString();
 	}
 
-	public void addGamer(String atributos) {
-		StringBuilder sb = new StringBuilder();
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.print("Introduce el nick: ");
-		String nick = sc.nextLine();
-		sb.append(nick + ";");
-		System.out.print("Introduce el email: ");
-		String email = sc.nextLine();
-		sb.append(email + ";");
-		System.out.print("Introduce el juego: ");
-		String juego = sc.nextLine();
-		sb.append(juego + ";");
-		System.out.print("Introduce el nivel: ");
-		String nivel = sc.nextLine();
-		Nivel.valueOf(nivel);
-//FALTA POR TERMINAR
-	}
-	public boolean removeGamer(Gamer g) {
-		return this.gamers.remove(g);
-	}
-	
 	/**
-	 * Este método se utilizará en el constructor de Discord para, a su vez, llamar al constructor de gamer y que se creen tantos objetos gamer como líneas tenga el archivo de texto del parámetro f1
-	 * Estas líneas tendrán la información necesaria para crear objetos Gamer
+	 * Aniade g al HashSet gamers de la clase Discord
+	 * @param g
+	 */
+	public void addGamer(Gamer g) {
+
+		this.gamers.add(g);
+	}
+
+	/**
+	 * Elimina g del HashSet gamers de la clase Discord. Devuelve true si lo ha eliminado o false si no lo ha eliminado
+	 * @param g
+	 * @return
+	 */
+	public boolean removeGamer(Gamer g) {
+
+
+		return this.gamers.remove(g);
+
+	}
+
+	/**
+	 * Este método se utilizará en el constructor de Discord para, a su vez, llamar
+	 * al constructor de gamer y que se creen tantos objetos gamer como líneas tenga
+	 * el archivo de texto del parámetro f1 Estas líneas tendrán la información
+	 * necesaria para crear objetos Gamer
+	 * 
 	 * @param f1
 	 * @return
 	 */
 	public boolean loadGamers(Path f1) {
 		boolean exitoLectura = false;
-		
+
 		try {
 			List<String> lineas = Files.readAllLines(f1);
-			
-			
-			this.gamers = (HashSet) lineas.stream()
-							.map(linea-> {
-									String[] atributos = linea.split(";");
-									return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
-							})
-							.collect(Collectors.toSet());
+
+			this.gamers = (HashSet) lineas.stream().map(linea -> {
+				String[] atributos = linea.split(";");
+				return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
+			}).collect(Collectors.toSet());
 
 			exitoLectura = true;
 		} catch (IOException e) {
@@ -88,56 +87,57 @@ public class Discord {
 			e.printStackTrace();
 			exitoLectura = false;
 		}
-		
+
 		return exitoLectura;
 	}
-	
+
 	/**
 	 * Devuelve true si el objeto se encuentra dentro del conjunto de Gamers
+	 * 
 	 * @param g
 	 * @return
 	 */
 	public boolean findGamer(Gamer g) {
 		return this.gamers.contains(g);
 	}
+
 	/**
 	 * Devuelve un String con la información de todos los Gamers
+	 * 
 	 * @return
 	 */
-	public String listGamers(){
+	public String listGamers() {
 		String infoGamer = null;
-		
-		return infoGamer = this.gamers.stream()
-						.toString();
-					
+
+		return infoGamer = this.gamers.stream().toString();
+
 	}
-	
+
 	public void saveGamers(String uri) {
-		//Fichero a leer
+		// Fichero a leer
 		Path f1 = Paths.get(uri);
-		//Fichero a escribir
+		// Fichero a escribir
 		Path f2 = Paths.get(uri);
-		
-		
+
 		try {
-			//Obtenemos BufferedReader para el fichero a leer
+			// Obtenemos BufferedReader para el fichero a leer
 			BufferedReader br = Files.newBufferedReader(f1);
-			
-			//Obtenemos BufferedReader para el fichero a escribir
+
+			// Obtenemos BufferedReader para el fichero a escribir
 			BufferedWriter bw = Files.newBufferedWriter(f2);
-			
+
 			String informacion = listGamers();
-			while((informacion = br.readLine()) != null) {
+			while ((informacion = br.readLine()) != null) {
 				bw.write(informacion);
 				bw.newLine();
 			}
 			bw.close();
 			br.close();
-			
+
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 		}
 	}
-	
+
 }

@@ -2,11 +2,37 @@ package practica3ejer1;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import practica3ejer1.Gamer.Nivel;
 
 public class TestGamer {
 	
 	
+public static String propiedades() {
+
+	
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.println(
+			"Introduce los atributos de Gamer intercalando un ';' y sin usar espacios para especificar nick, email, juego y nivel");
+	String prop = sc.nextLine();
+	
+	sc.close();
+	return prop;
+}
+
+public static Gamer creadorGamers() {
+	List<String> lineas = List.of(propiedades());
+	
+	return(lineas.stream().map(linea -> {
+		String[] atributos = linea.split(";");
+		return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
+	}).collect(Collectors.toSet()).stream().findFirst().get());
+	
+}
 
 	
 	public static void main(String[] args) {
@@ -36,16 +62,16 @@ public class TestGamer {
 			switch (opcion) {
 			case 1: {
 				
-				discord.addGamer(null);
+				discord.addGamer(creadorGamers());
 
 				break;
 			}
 			case 2: {
-				discord.removeGamer(null);
+				discord.removeGamer(creadorGamers());
 				break;
 			}
 			case 3: {
-				discord.findGamer(null);
+				discord.findGamer(creadorGamers());
 				break;
 			}
 			case 4: {
