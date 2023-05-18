@@ -20,7 +20,6 @@ public static String propiedades() {
 			"Introduce los atributos de Gamer intercalando un ';' y sin usar espacios para especificar nick, email, juego y nivel");
 	String prop = sc.nextLine();
 	
-	sc.close();
 	return prop;
 }
 
@@ -29,7 +28,7 @@ public static Gamer creadorGamers() {
 	
 	return(lineas.stream().map(linea -> {
 		String[] atributos = linea.split(";");
-		return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3]));
+		return new Gamer(atributos[0], atributos[1], atributos[2], Nivel.valueOf(atributos[3].toUpperCase()));
 	}).collect(Collectors.toSet()).stream().findFirst().get());
 	
 }
@@ -42,6 +41,7 @@ public static Gamer creadorGamers() {
 		Path uri = Paths.get("src/resources/Gamers.txt");
 
 		int opcion = 0;
+
 		Scanner sc = new Scanner(System.in);
 		
 		//Cargamos los jugadores inicialmente a partir del archivo
@@ -57,13 +57,14 @@ public static Gamer creadorGamers() {
 			System.out.println("4.-"+"\t" + "Listar informacion");
 			System.out.println("5.-"+"\t" + "Salir"+"\n");
 			System.out.print("Selecciona una opcion: ");
+
 			opcion = Integer.parseInt(sc.nextLine());
 			
 			switch (opcion) {
 			case 1: {
 				
 				discord.addGamer(creadorGamers());
-
+				
 				break;
 			}
 			case 2: {
