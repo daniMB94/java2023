@@ -1,15 +1,13 @@
 package practica3ejer1;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import practica3ejer1.Gamer.Nivel;
@@ -35,14 +33,15 @@ public class Discord {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Discord [gamers=");
+
 		builder.append(gamers);
-		builder.append("]");
+
 		return builder.toString();
 	}
 
 	/**
 	 * Aniade g al HashSet gamers de la clase Discord
+	 * 
 	 * @param g
 	 */
 	public void addGamer(Gamer g) {
@@ -51,12 +50,13 @@ public class Discord {
 	}
 
 	/**
-	 * Elimina g del HashSet gamers de la clase Discord. Devuelve true si lo ha eliminado o false si no lo ha eliminado
+	 * Elimina g del HashSet gamers de la clase Discord. Devuelve true si lo ha
+	 * eliminado o false si no lo ha eliminado
+	 * 
 	 * @param g
 	 * @return
 	 */
 	public boolean removeGamer(Gamer g) {
-
 
 		return this.gamers.remove(g);
 
@@ -108,43 +108,43 @@ public class Discord {
 	 * @return
 	 */
 	public String listGamers() {
-		String infoGamer = null;
 
-		return infoGamer = this.gamers.toString();
+		return this.gamers.toString();
 
 	}
 
-	public void saveGamers(String uri) {
-		
-		
-		
-		Files.write(uri, Files.readAllLines(Paths.get(uri)), StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-		
-		/*
-		// Fichero a leer
-		Path f1 = Paths.get(uri);
-		// Fichero a escribir
-		Path f2 = Paths.get(uri);
+	public void saveGamers(Path uri) {
+
+		ArrayList<Gamer> listaGamer = (ArrayList<Gamer>) this.gamers.stream().collect(Collectors.toList());
+
+		List<String> listadoAtributos = (List<String>) listaGamer.stream()
+				.map(g -> g.getNick() + ";" + g.getEmail() + ";" + g.getJuego() + ";" + g.getNivel().toString())
+				.collect(Collectors.toList());
 
 		try {
-			// Obtenemos BufferedReader para el fichero a leer
-			BufferedReader br = Files.newBufferedReader(f1);
-
-			// Obtenemos BufferedReader para el fichero a escribir
-			BufferedWriter bw = Files.newBufferedWriter(f2);
-
-			String informacion = listGamers();
-			while ((informacion = br.readLine()) != null) {
-				bw.write(informacion);
-				bw.newLine();
-			}
-			bw.close();
-			br.close();
-
+			Files.write(uri, listadoAtributos, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 		} catch (IOException e) {
-
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
+
+		/*
+		 * // Fichero a leer Path f1 = Paths.get(uri); // Fichero a escribir Path f2 =
+		 * Paths.get(uri);
+		 * 
+		 * try { // Obtenemos BufferedReader para el fichero a leer BufferedReader br =
+		 * Files.newBufferedReader(f1);
+		 * 
+		 * // Obtenemos BufferedReader para el fichero a escribir BufferedWriter bw =
+		 * Files.newBufferedWriter(f2);
+		 * 
+		 * String informacion = listGamers(); while ((informacion = br.readLine()) !=
+		 * null) { bw.write(informacion); bw.newLine(); } bw.close(); br.close();
+		 * 
+		 * } catch (IOException e) {
+		 * 
+		 * e.printStackTrace(); }
+		 */
 	}
 
 }

@@ -10,7 +10,10 @@ import practica3ejer1.Gamer.Nivel;
 
 public class TestGamer {
 	
-	
+/**
+ * Método que guarda en un String los atributos de un objeto separados por punto y coma
+ * @return
+ */
 public static String propiedades() {
 
 	
@@ -23,6 +26,10 @@ public static String propiedades() {
 	return prop;
 }
 
+/**
+ * Método que crea objetos Gamer a partir de un String con los atributos separados por punto y coma
+ * @return
+ */
 public static Gamer creadorGamers() {
 	List<String> lineas = List.of(propiedades());
 	
@@ -72,7 +79,10 @@ public static Gamer creadorGamers() {
 				break;
 			}
 			case 3: {
-				discord.findGamer(creadorGamers());
+				if(discord.findGamer(creadorGamers()))
+					System.out.println("Ese Gamer existe");
+				else
+					System.out.println("Ese Gamer no existe");
 				break;
 			}
 			case 4: {
@@ -83,6 +93,8 @@ public static Gamer creadorGamers() {
 			}
 			case 5: {
 				System.out.println("Salir" + "\n");
+				discord.saveGamers(uri);
+				System.out.println("Fichero de jugadores actualizado \n");
 				System.out.println("***Programa terminado***");
 				break;
 			}
