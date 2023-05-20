@@ -113,6 +113,10 @@ public class Discord {
 
 	}
 
+	/**
+	 * Guarda la información del ArrayList en el fichero gamers.txt. Lo sobreescribe
+	 * @param uri
+	 */
 	public void saveGamers(Path uri) {
 
 		ArrayList<Gamer> listaGamer = (ArrayList<Gamer>) this.gamers.stream().collect(Collectors.toList());
@@ -128,23 +132,6 @@ public class Discord {
 			e.printStackTrace();
 		}
 
-		/*
-		 * // Fichero a leer Path f1 = Paths.get(uri); // Fichero a escribir Path f2 =
-		 * Paths.get(uri);
-		 * 
-		 * try { // Obtenemos BufferedReader para el fichero a leer BufferedReader br =
-		 * Files.newBufferedReader(f1);
-		 * 
-		 * // Obtenemos BufferedReader para el fichero a escribir BufferedWriter bw =
-		 * Files.newBufferedWriter(f2);
-		 * 
-		 * String informacion = listGamers(); while ((informacion = br.readLine()) !=
-		 * null) { bw.write(informacion); bw.newLine(); } bw.close(); br.close();
-		 * 
-		 * } catch (IOException e) {
-		 * 
-		 * e.printStackTrace(); }
-		 */
 	}
 
 }

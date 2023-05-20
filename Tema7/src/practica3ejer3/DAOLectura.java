@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
@@ -23,6 +24,9 @@ public class DAOLectura {
 	
 	/*Le pasamos un DAOFinca para poder incluir en el constructor la finca correspondiente buscando por id*/
 
+	/**
+	 * Lee un archivo de texto separado por punto y coma y va creando objetos de cada linea utilizando un stream que separa los atributos y llama al constructor
+	 */
 	public void cargarDatos() {
 
 		Path ruta = Paths.get("src/resources/lecturas");
@@ -35,7 +39,7 @@ public class DAOLectura {
 			this.lecturas = (HashSet) listadoLecturas.stream().map(linea -> {
 				String[] atributos = linea.split(";");
 				
-				return new Lectura(Integer.parseInt(atributos[0]), Double.parseDouble(atributos[1]), Double.parseDouble(atributos[2]), LocalDateTime.parse(atributos[3], formato), new Finca(Integer.parseInt(atributos[4])));
+				return new Lectura(Integer.parseInt(atributos[0]), Double.parseDouble(atributos[1]), Double.parseDouble(atributos[2]), LocalDateTime.parse(atributos[3], formato), DAOFinca.findById(Integer.parseInt(atributos[4])));
 						
 			}).collect(Collectors.toList());
 		} catch (IOException e) {
@@ -43,5 +47,36 @@ public class DAOLectura {
 			e.printStackTrace();
 		}
 
+	}
+	/**
+	 * Graba la información de los lecturas guardadas en el HashSet lecturas 
+	 */
+	public void grabarDatos() {
+		Path ruta = Paths.get("src/resources/lecturas");
+		
+		List<Lectura> listadoLecturas = this.lecturas.stream().collect(Collectors.toList());
+		List<String> atributosLecturas = listadoLecturas.stream()
+														.map(Lectura::atributos)
+														.toList();
+		try {
+			Files.write(ruta, atributosLecturas, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+		} catch (IOException e) {
+			System.out.println("Error al grabar los datos al fichero csv");
+		}
+	}
+	/**
+	 * Aniade una lectura al HashSet lecturas
+	 * @param l
+	 */
+	public void addLectura(Lectura l) {
+		this.lecturas.add(l);
+	}
+	
+	/**
+	 * Elimina una lectura del HashSet lecturas
+	 * @param l
+	 */
+	public void deleteLectura(Lectura l) {
+		this.lecturas.remove(l);
 	}
 }

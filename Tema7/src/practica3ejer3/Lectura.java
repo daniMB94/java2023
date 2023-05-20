@@ -100,6 +100,18 @@ public class Lectura {
 		builder.append("]");
 		return builder.toString();
 	}
+	
+	public String atributos() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(temperatura);
+		builder.append(";");
+		builder.append(humedad);
+		builder.append(";");
+		builder.append(momento);
+		builder.append(";");
+		builder.append(finca);
+		return builder.toString();
+	}
 
 	@Override
 	public int hashCode() {
