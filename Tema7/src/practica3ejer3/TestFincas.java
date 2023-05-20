@@ -8,6 +8,8 @@ public class TestFincas {
 		DAOFinca df = new DAOFinca();
 		df.getFincasPorSuperficie();
 		
+
+		
 	}
 
 }

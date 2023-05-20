@@ -8,13 +8,13 @@ public class Finca {
 
 	private int id;
 	private String nombre;
-	private long longitud;
-	private long latitud;
+	private double longitud;
+	private double latitud;
 	private double superficie;
 	private String localidad;
 	private String provincia;
 	
-	public Finca(String nombre, long longitud, long latitud, double superficie, String localidad, String provincia) {
+	public Finca(String nombre, double longitud, double latitud, double superficie, String localidad, String provincia) {
 		super();
 		this.id = idGeneral++;
 		this.nombre = nombre;
@@ -56,7 +56,7 @@ public class Finca {
 	/**
 	 * @return the longitud
 	 */
-	public long getLongitud() {
+	public double getLongitud() {
 		return longitud;
 	}
 
@@ -70,14 +70,14 @@ public class Finca {
 	/**
 	 * @return the latitud
 	 */
-	public long getLatitud() {
+	public double getLatitud() {
 		return latitud;
 	}
 
 	/**
 	 * @param latitud the latitud to set
 	 */
-	public void setLatitud(long latitud) {
+	public void setLatitud(double latitud) {
 		this.latitud = latitud;
 	}
 
@@ -94,6 +94,7 @@ public class Finca {
 	public void setSuperficie(double superficie) {
 		this.superficie = superficie;
 	}
+
 
 	/**
 	 * @return the localidad
@@ -128,6 +129,27 @@ public class Finca {
 	 */
 	public int getId() {
 		return id;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Finca [id=");
+		builder.append(id);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", longitud=");
+		builder.append(longitud);
+		builder.append(", latitud=");
+		builder.append(latitud);
+		builder.append(", superficie=");
+		builder.append(superficie);
+		builder.append(", localidad=");
+		builder.append(localidad);
+		builder.append(", provincia=");
+		builder.append(provincia);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	@Override
