@@ -29,9 +29,9 @@ public class DAOLectura {
 	 */
 	public void cargarDatos() {
 
-		Path ruta = Paths.get("src/resources/lecturas");
+		Path ruta = Paths.get("src/resources/lecturas.csv");
 
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/M/yyyy");
 		
 		
 		try {
@@ -43,7 +43,7 @@ public class DAOLectura {
 						
 			}).collect(Collectors.toList());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
