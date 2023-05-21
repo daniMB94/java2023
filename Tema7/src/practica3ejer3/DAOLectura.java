@@ -22,7 +22,6 @@ public class DAOLectura {
 		cargarDatos();
 	}
 	
-	/*Le pasamos un DAOFinca para poder incluir en el constructor la finca correspondiente buscando por id*/
 
 	/**
 	 * Lee un archivo de texto separado por coma y va creando objetos de cada linea utilizando un stream que separa los atributos y llama al constructor
