@@ -1,5 +1,6 @@
 package practica3ejer3;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -10,10 +11,10 @@ public class Lectura {
 	private int id;
 	private double temperatura;
 	private double humedad;
-	private LocalDateTime momento;
+	private LocalDate momento;
 	private Finca finca;
 	
-	public Lectura(double temperatura, double humedad, LocalDateTime momento, Finca finca) {
+	public Lectura(double temperatura, double humedad, LocalDate momento, Finca finca) {
 		super();
 		this.id = idGeneral++;
 		this.temperatura = temperatura;
@@ -53,14 +54,14 @@ public class Lectura {
 	/**
 	 * @return the momento
 	 */
-	public LocalDateTime getMomento() {
+	public LocalDate getMomento() {
 		return momento;
 	}
 
 	/**
 	 * @param momento the momento to set
 	 */
-	public void setMomento(LocalDateTime momento) {
+	public void setMomento(LocalDate momento) {
 		this.momento = momento;
 	}
 

@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.List;
@@ -31,7 +31,6 @@ public class DAOLectura {
 
 		Path ruta = Paths.get("src/resources/lecturas.csv");
 
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/M/yyyy");
 		
 		
 		try {
@@ -39,9 +38,9 @@ public class DAOLectura {
 			this.lecturas = (HashSet) listadoLecturas.stream().map(linea -> {
 				String[] atributos = linea.split(",");
 				
-				return new Lectura(Double.parseDouble(atributos[1]), Double.parseDouble(atributos[2]), LocalDateTime.parse(atributos[3], formato), DAOFinca.findById(Integer.parseInt(atributos[4])));
+				return new Lectura(Double.parseDouble(atributos[0]), Double.parseDouble(atributos[1]), LocalDate.parse(atributos[2]), DAOFinca.findById(Integer.parseInt(atributos[3])));
 						
-			}).collect(Collectors.toList());
+			}).collect(Collectors.toSet());
 		} catch (IOException e) {
 			
 			e.printStackTrace();
