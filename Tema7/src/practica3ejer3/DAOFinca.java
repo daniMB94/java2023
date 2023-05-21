@@ -131,6 +131,9 @@ public class DAOFinca {
 				.forEach(System.out::println);
 	}
 
+	/**
+	 * Devuelve las fincas agrupadas por su ciudad
+	 */
 	public void getFincasPorCiudad() {
 		Map<String, List<Finca>> fincasPorCiudad = fincas.stream()
 				.collect(Collectors.groupingBy(Finca::getLocalidad));

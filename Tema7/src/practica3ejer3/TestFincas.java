@@ -6,15 +6,20 @@ public class TestFincas {
 
 		
 		DAOFinca df = new DAOFinca();
+		System.out.println("FINCAS ORDENADAS POR SUPERFICIE");
 		df.getFincasPorSuperficie();
-		System.out.println("-----------------");
+		System.out.println("FINCAS MÁS GRANDES");
 		df.getMasGrandes();
-		System.out.println("------------------");
+		System.out.println("FINCAS POR CIUDAD");
 		df.getFincasPorCiudad();
-		System.out.println("-----------------");
+		
+		
+		
 		
 		
 		DAOLectura dl = new DAOLectura();
+		System.out.println("LECTURAS POR CIUDAD");
+		dl.getLecturasPorCuiudad();
 		
 
 		

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -76,5 +77,14 @@ public class DAOLectura {
 	 */
 	public void deleteLectura(Lectura l) {
 		this.lecturas.remove(l);
+	}
+	/**
+	 * Devuelve las lecturas por su ciudad
+	 */
+	public void getLecturasPorCuiudad() {
+		Map<Lectura, Set<Finca>> lecturasPorCiudad = this.lecturas.stream()
+				.collect(Collectors.groupingBy(Finca::getLocalidad));
+
+		System.out.println(lecturasPorCiudad.toString());
 	}
 }
