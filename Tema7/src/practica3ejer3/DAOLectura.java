@@ -39,7 +39,7 @@ public class DAOLectura {
 			this.lecturas = (HashSet) listadoLecturas.stream().map(linea -> {
 				String[] atributos = linea.split(",");
 				
-				return new Lectura(Integer.parseInt(atributos[0]), Double.parseDouble(atributos[1]), Double.parseDouble(atributos[2]), LocalDateTime.parse(atributos[3], formato), DAOFinca.findById(Integer.parseInt(atributos[4])));
+				return new Lectura(Double.parseDouble(atributos[1]), Double.parseDouble(atributos[2]), LocalDateTime.parse(atributos[3], formato), DAOFinca.findById(Integer.parseInt(atributos[4])));
 						
 			}).collect(Collectors.toList());
 		} catch (IOException e) {

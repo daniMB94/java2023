@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class Lectura {
 
+	private static int idGeneral = 0;
 	
 	private int id;
 	private double temperatura;
@@ -12,9 +13,9 @@ public class Lectura {
 	private LocalDateTime momento;
 	private Finca finca;
 	
-	public Lectura(int id, double temperatura, double humedad, LocalDateTime momento, Finca finca) {
+	public Lectura(double temperatura, double humedad, LocalDateTime momento, Finca finca) {
 		super();
-		this.id = id;
+		this.id = idGeneral++;
 		this.temperatura = temperatura;
 		this.humedad = humedad;
 		this.momento = momento;
