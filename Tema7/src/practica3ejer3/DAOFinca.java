@@ -127,7 +127,7 @@ public class DAOFinca {
 	 * Devuelve las 3 fíncas más grandes
 	 */
 	public void getMasGrandes() {
-		fincas.stream().sorted((f1, f2) -> (int) f1.getSuperficie() - (int) f2.getSuperficie()).limit(3)
+		fincas.stream().sorted((f1, f2) -> (int) f2.getSuperficie() - (int) f1.getSuperficie()).limit(3)
 				.forEach(System.out::println);
 	}
 

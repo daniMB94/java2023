@@ -7,7 +7,11 @@ public class TestFincas {
 		
 		DAOFinca df = new DAOFinca();
 		df.getFincasPorSuperficie();
-		
+		System.out.println("-----------------");
+		df.getMasGrandes();
+		System.out.println("------------------");
+		df.getFincasPorCiudad();
+		System.out.println("-----------------");
 		
 		
 		DAOLectura dl = new DAOLectura();
