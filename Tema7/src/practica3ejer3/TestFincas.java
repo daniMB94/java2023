@@ -15,11 +15,11 @@ public class TestFincas {
 		
 		
 		
-		
-		
 		DAOLectura dl = new DAOLectura();
 		System.out.println("LECTURAS POR CIUDAD");
 		dl.getLecturasPorCiudad();
+		System.out.println("MAXIMA TEMPERATURA POR CIUDAD");
+		dl.getTempMaximaPorFinca();
 		
 
 		
