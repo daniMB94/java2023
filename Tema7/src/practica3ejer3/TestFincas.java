@@ -19,7 +19,7 @@ public class TestFincas {
 		
 		DAOLectura dl = new DAOLectura();
 		System.out.println("LECTURAS POR CIUDAD");
-		dl.getLecturasPorCuiudad();
+		dl.getLecturasPorCiudad();
 		
 
 		

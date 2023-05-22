@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Lectura {
 
-	private static int idGeneral = 0;
+	private static int idGeneral = 1;
 	
 	private int id;
 	private double temperatura;

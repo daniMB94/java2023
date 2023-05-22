@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Finca {
 	
-	public static int idGeneral = 0;
+	public static int idGeneral = 1;
 
 	private int id;
 	private String nombre;
@@ -23,11 +23,6 @@ public class Finca {
 		this.superficie = superficie;
 		this.localidad = localidad;
 		this.provincia = provincia;
-	}
-	//sobrecargamos el constructor para usarlo en DAOLectura en el método cargarDatos()
-	public Finca(int id) {
-		super();
-		this.id = id;
 	}
 
 	/**

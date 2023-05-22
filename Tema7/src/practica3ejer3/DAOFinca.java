@@ -21,6 +21,14 @@ public class DAOFinca {
 		cargarDatos();
 
 	}
+	
+	
+
+	public static ArrayList<Finca> getFincas() {
+		return fincas;
+	}
+
+
 
 	/**
 	 * Carga los datos contenidos en un archivo csv al ArrayList fincas
@@ -51,12 +59,15 @@ public class DAOFinca {
 	 */
 	public static Finca findById(int id) {
 
+		Finca fincaBuscada = null;
+		
 		for (Finca f : fincas) {
-			if (f.getId() == id) {
-				return f;
-			}
+			if (f.getId() == id)
+				fincaBuscada = f;
 		}
-		return null;
+		
+		return fincaBuscada;
+		
 
 	}
 

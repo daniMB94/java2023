@@ -23,6 +23,15 @@ public class DAOLectura {
 		cargarDatos();
 	}
 	
+	
+	
+
+	public Set<Lectura> getLecturas() {
+		return lecturas;
+	}
+
+
+
 
 	/**
 	 * Lee un archivo de texto separado por coma y va creando objetos de cada linea utilizando un stream que separa los atributos y llama al constructor
@@ -81,9 +90,9 @@ public class DAOLectura {
 	/**
 	 * Devuelve las lecturas por su ciudad
 	 */
-	public void getLecturasPorCuiudad() {
-		Map<Lectura, Set<Finca>> lecturasPorCiudad = this.lecturas.stream()
-				.collect(Collectors.groupingBy(Finca::getLocalidad));
+	public void getLecturasPorCiudad() {
+		Map<Finca, List<Lectura>> lecturasPorCiudad = this.lecturas.stream()
+				.collect(Collectors.groupingBy(Lectura::getFinca));
 
 		System.out.println(lecturasPorCiudad.toString());
 	}
