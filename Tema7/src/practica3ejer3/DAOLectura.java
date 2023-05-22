@@ -101,24 +101,12 @@ public class DAOLectura {
 	 * Devuelve las lecturas por ciudad ordenadas por temperatura de máximas a mínimas
 	 */
 	public void getTempMaximaPorFinca() {
-		this.lecturas.stream()
-					.sorted(new Comparator<Lectura>() {
-
-						@Override
-						public int compare(Lectura o1, Lectura o2) {
-							int t1 = (int) o1.getTemperatura();
-							int t2 = (int) o2.getTemperatura();
-							
-							if( t2 > t1)
-								return 1;
-							else 
-								if(t1 > t2)
-									return -1;
-								else
-									return 0;
-						}
-						
-					}).forEach(System.out::println);
+		Map<String, Double> maxTempCiudad = this.lecturas.stream()
+	
+														.collect(Collectors.toMap(c -> c.getFinca().getNombre(), v -> v.getTemperatura()));
+		
+		
+					
 					
 	}
 	
