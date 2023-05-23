@@ -8,10 +8,13 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import practica3ejer1.Gamer;
 
 public class DAOLectura {
 
@@ -23,12 +26,9 @@ public class DAOLectura {
 		cargarDatos();
 	}
 
-	
-
 	public List<Lectura> getLecturas() {
 		return lecturas;
 	}
-
 
 	/**
 	 * Lee un archivo de texto separado por coma y va creando objetos de cada linea
@@ -58,14 +58,17 @@ public class DAOLectura {
 	 * Graba la información de los lecturas guardadas en el HashSet lecturas
 	 */
 	public void grabarDatos() {
-		Path ruta = Paths.get("src/resources/lecturas.csv");
+		Path uri = Paths.get("src/resources/lecturas.csv");
 
-		List<Lectura> listadoLecturas = this.lecturas.stream().collect(Collectors.toList());
-		List<String> atributosLecturas = listadoLecturas.stream().map(Lectura::atributos).toList();
+		List<String> listadoAtributos = (List<String>) this.lecturas.stream().map(
+				le -> le.getTemperatura() + "," + le.getHumedad() + "," + le.getMomento() + "," + le.getFinca().getId())
+				.collect(Collectors.toList());
+
 		try {
-			Files.write(ruta, atributosLecturas, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+			Files.write(uri, listadoAtributos, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 		} catch (IOException e) {
-			System.out.println("Error al grabar los datos al fichero csv");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -83,8 +86,10 @@ public class DAOLectura {
 	 * 
 	 * @param l
 	 */
-	public void deleteLectura(Lectura l) {
-		this.lecturas.remove(l);
+	public void deleteLectura(int id) {
+		
+		this.lecturas.remove(id);
+
 	}
 
 	/**
@@ -98,33 +103,46 @@ public class DAOLectura {
 	}
 
 	/**
-	 * Devuelve las lecturas por ciudad ordenadas por temperatura de máximas a mínimas
+	 * Devuelve las lecturas de temperatura maxima por ciudad
 	 */
 	public void getTempMaximaPorFinca() {
-		
+
 		Map<Finca, Optional<Double>> maxTemperaturasPorFinca = this.lecturas.stream()
-                .collect(Collectors.groupingBy(lectura -> lectura.getFinca(),
-                        Collectors.mapping(Lectura::getTemperatura, Collectors.maxBy(Double::compare))));
-		
+				.collect(Collectors.groupingBy(lectura -> lectura.getFinca(),
+						Collectors.mapping(Lectura::getTemperatura, Collectors.maxBy(Double::compare))));
+
 		System.out.println(maxTemperaturasPorFinca);
 	}
-	
+
 	/**
-	 * Devuelve las lecturas por ciudad ordenadas por temperatura de mínimas a máximas
+	 * Devuelve las lecturas de temperatura minima por ciudad
 	 */
 	public void getTemperaturaMínimaPorFinca() {
 		Map<Finca, Optional<Double>> maxTemperaturasPorFinca = this.lecturas.stream()
-                .collect(Collectors.groupingBy(lectura -> lectura.getFinca(),
-                        Collectors.mapping(Lectura::getTemperatura, Collectors.minBy(Double::compare))));
-		
+				.collect(Collectors.groupingBy(lectura -> lectura.getFinca(),
+						Collectors.mapping(Lectura::getTemperatura, Collectors.minBy(Double::compare))));
+
 		System.out.println(maxTemperaturasPorFinca);
 	}
+
 	/**
 	 * Devuelve la humedad por finca
 	 */
 	public void getHumdadPorFinca() {
-		
+		Map<Finca, DoubleSummaryStatistics> humedadPorFinca = this.lecturas.stream().collect(Collectors
+				.groupingBy(lectura -> lectura.getFinca(), Collectors.summarizingDouble(Lectura::getHumedad)));
+
+		System.out.println(humedadPorFinca);
 	}
 
-	
+	/**
+	 * Devuelve la temperatura por finca
+	 */
+	public Map<Finca, DoubleSummaryStatistics> getTempPorFinca() {
+		Map<Finca, DoubleSummaryStatistics> tempPorFinca = this.lecturas.stream().collect(Collectors
+				.groupingBy(lectura -> lectura.getFinca(), Collectors.summarizingDouble(Lectura::getTemperatura)));
+		return tempPorFinca;
+
+	}
+
 }

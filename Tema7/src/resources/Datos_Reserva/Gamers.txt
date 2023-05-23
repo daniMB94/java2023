@@ -1,0 +1,4 @@
+nick3;nick3@gmail.com;COD;MALILLO
+nick4;nick4@gmail.com;PUBG;DIOS
+nick5;nick5@gmail.com;COD;PAQUETE
+nick2;nick2@gmail.com;COD;BUENO

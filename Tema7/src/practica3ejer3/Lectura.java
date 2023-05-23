@@ -117,7 +117,7 @@ public class Lectura {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(finca);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public class Lectura {
 		if (getClass() != obj.getClass())
 			return false;
 		Lectura other = (Lectura) obj;
-		return Objects.equals(finca, other.finca);
+		return id == other.id;
 	}
 	
 	
