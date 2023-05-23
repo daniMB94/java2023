@@ -22,7 +22,7 @@ public class TestFincas {
 		dl.getTempMaximaPorFinca();
 		System.out.println("MINIMA TEMPERATURA POR CIUDAD");
 		dl.getTemperaturaMínimaPorFinca();
-
+		
 		
 		
 	}

@@ -6,29 +6,29 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.function.Consumer;
+import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class DAOLectura {
 
-	private Set<Lectura> lecturas;
+	private List<Lectura> lecturas;
 
 	public DAOLectura() {
 		super();
-		this.lecturas = new HashSet<>();
+		this.lecturas = new ArrayList<>();
 		cargarDatos();
 	}
 
-	public Set<Lectura> getLecturas() {
+	
+
+	public List<Lectura> getLecturas() {
 		return lecturas;
 	}
+
 
 	/**
 	 * Lee un archivo de texto separado por coma y va creando objetos de cada linea
@@ -40,13 +40,13 @@ public class DAOLectura {
 
 		try {
 			List<String> listadoLecturas = Files.readAllLines(ruta);
-			this.lecturas = (HashSet) listadoLecturas.stream().map(linea -> {
+			this.lecturas = listadoLecturas.stream().map(linea -> {
 				String[] atributos = linea.split(",");
 
 				return new Lectura(Double.parseDouble(atributos[0]), Double.parseDouble(atributos[1]),
 						LocalDate.parse(atributos[2]), DAOFinca.findById(Integer.parseInt(atributos[3])));
 
-			}).collect(Collectors.toSet());
+			}).collect(Collectors.toList());
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -101,39 +101,30 @@ public class DAOLectura {
 	 * Devuelve las lecturas por ciudad ordenadas por temperatura de máximas a mínimas
 	 */
 	public void getTempMaximaPorFinca() {
-		Map<String, Double> maxTempCiudad = this.lecturas.stream()
-	
-														.collect(Collectors.toMap(c -> c.getFinca().getNombre(), v -> v.getTemperatura()));
 		
+		Map<Finca, Optional<Double>> maxTemperaturasPorFinca = this.lecturas.stream()
+                .collect(Collectors.groupingBy(lectura -> lectura.getFinca(),
+                        Collectors.mapping(Lectura::getTemperatura, Collectors.maxBy(Double::compare))));
 		
-					
-					
+		System.out.println(maxTemperaturasPorFinca);
 	}
 	
 	/**
 	 * Devuelve las lecturas por ciudad ordenadas por temperatura de mínimas a máximas
 	 */
 	public void getTemperaturaMínimaPorFinca() {
-		this.lecturas.stream()
-		.sorted(new Comparator<Lectura>() {
-
-			@Override
-			public int compare(Lectura o1, Lectura o2) {
-				int t1 = (int) o1.getTemperatura();
-				int t2 = (int) o2.getTemperatura();
-				
-				if( t1 > t2)
-					return 1;
-				else 
-					if(t2 > t1)
-						return -1;
-					else
-						return 0;
-			}
-			
-		}).forEach(System.out::println);
+		Map<Finca, Optional<Double>> maxTemperaturasPorFinca = this.lecturas.stream()
+                .collect(Collectors.groupingBy(lectura -> lectura.getFinca(),
+                        Collectors.mapping(Lectura::getTemperatura, Collectors.minBy(Double::compare))));
+		
+		System.out.println(maxTemperaturasPorFinca);
 	}
-
+	/**
+	 * Devuelve la humedad por finca
+	 */
+	public void getHumdadPorFinca() {
+		
+	}
 
 	
 }
